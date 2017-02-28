@@ -1,0 +1,12 @@
+#footer, .top-bar{
+    background: url('cool.jpg');
+    color:white;
+
+    border:none;
+    padding: 15px 0;
+}
+#footer{
+    padding-bottom:0px;
+    height:300px;
+    border:solid 1px blue;
+}

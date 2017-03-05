@@ -6,6 +6,7 @@
     <%= f.text_field :email,  placeholder: 'Email'  %>
     <%= f.text_field :phone,  placeholder: 'Phone'  %>
     <%= f.text_field :school, placeholder: 'School'  %>
-    <%= f.text_field :password, placeholder: 'Password'  %>
-    <%= f.text_field :password, placeholder: 'Confirm Password'  %>
+    <%= f.password_field :password, placeholder: 'Password'  %>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password'  %>
+    <%= f.submit "Signup" %>
     <% end %>

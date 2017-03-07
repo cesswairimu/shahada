@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to @user
+      flash[:success] = "Congrats!! Your have successfully signed up!!!"
+    else
+      render 'new'
+      flash[:nasty]="OOPSSS !!Check your inputs and try again"
     end
   end
 

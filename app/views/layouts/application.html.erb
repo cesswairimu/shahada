@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+        <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+        <%= stylesheet_link_tag    "application" %>
+        <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
 
-  <body>
-  <%= render 'layouts/nav-bar' %>
-    <%= yield %>
-  <%# <%= render 'layouts/footer' %1> %>
+    <body>
+        <%= render 'layouts/nav-bar' %>
+         
+  <% flash.each do |type, text| %>
+                <div id="flash" class="callout small <%= type %>" data-closable>
+                    <%= text %></div>
+        <% end %>
+        <%= yield %>
+        <%# <%= render 'layouts/footer' %1> %>
 
-  </body>
+    </body>
 </html>

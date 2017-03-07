@@ -10,3 +10,12 @@
     height:300px;
     border:solid 1px blue;
 }
+
+
+#flash.nasty{
+   background-color:red; 
+}
+#flash.success{
+
+   background-color:green; 
+}

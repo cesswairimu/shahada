@@ -9,8 +9,8 @@ class UsersController < ApplicationController
       redirect_to @user
       flash[:success] = "Congrats!! Your have successfully signed up!!!"
     else
-      render 'new'
       flash[:nasty]="OOPSSS !!Check your inputs and try again"
+      render 'new'
     end
   end
 
@@ -20,6 +20,22 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Successful profile edit"
+      redirect_to @user
+    else
+      flash[:nasty]=" Check your inputs and try again"
+      render 'edit'
+      
+    end
   end
 
   private

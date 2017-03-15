@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       flash[:success] = "Successful profile edit"
       redirect_to @user
     else
-      flash[:nasty]=" Check your inputs and try again"
+      flash[:nasty]="Check your inputs and try again"
       render 'edit'
       
     end

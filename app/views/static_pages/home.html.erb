@@ -3,7 +3,8 @@
     <%= image_tag('girl.png')%>
     </div>
     <div class="medium-6 columns">
-        <div class="animated rotateIin">
+        <%# <div class="animated fadeInUp"> %>
+            <div class="animated slideInRight">
         <p>
         <br>
         If you have ever been a student at any time in your life, I bet  you must have had a moment where
@@ -26,11 +27,23 @@
     <%=link_to "Sign up as Student", new_user_path , class:"button success round"%> &nbsp; &nbsp; &nbsp;
     <%=link_to "Sign up as Lecturer", "#" , class:"button"%>
     </div>
-<h1>About us</h1>
-<hr>
-<div class="row">
-    <div class="medium-4 columns">
-        <h3>Motivation</h3>
+    <h1>About us</h1>
+    <hr>
+    <div class="row">
+        <div class="medium-4 columns" >
+            <div class="medium-offset-4" ><%= image_tag("people.png") %></div>
+        </div>
+        <div class="medium-4 columns">
+            <div class="medium-offset-4" ><%= image_tag("browser.png") %></div>
+        </div>
+        <div class="medium-4 columns">
+            <div class="medium-offset-4" ><%= image_tag("computer-1.png") %></div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="medium-4 columns">
+        <%# <h3>Motivation</h3> %>
         <p>
         The current communication between the students and the lecturers in
         the department is during lectures
@@ -41,7 +54,7 @@
         </p>
     </div>
     <div class="medium-4 columns">
-        <h3>SO??</h3>
+        <%# <h3>SO??</h3> %>
         <p>
         Shahada aims at solving the communication between the student
         and the teacher. In doing this the
@@ -53,7 +66,7 @@
         </p>
     </div>
     <div class="medium-4 columns">
-        <h3>How? </h3>
+        <%# <h3>How? </h3> %>
         <p> We provide a communication channel between the students and lecturers 
         where a student can ask a question and lecturer or a fellow classmate can answer. 
         The lecturer can also post an assignment in the website and any student in the 

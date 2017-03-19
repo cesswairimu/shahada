@@ -13,13 +13,14 @@
 
     <body>
         <%= render 'layouts/nav-bar' %>
-         
-  <% flash.each do |type, text| %>
-                <div id="flash" class="callout small <%= type %>" data-closable>
-                    <%= text %></div>
+
+        <% flash.each do |type, text| %>
+            <div id="flash" class="callout small <%= type %>" data-closable>
+                <%= text %>
+            </div>
         <% end %>
         <%= yield %>
-        <%# <%= render 'layouts/footer' %1> %>
+        <%= render 'layouts/footer' %>
 
     </body>
 </html>

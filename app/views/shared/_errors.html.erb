@@ -1,5 +1,5 @@
     <% if @user.errors.any? %>
-       This form contains <%= pluralize(@user.errors.count, "error" %> !!
+       This form contains <%= pluralize(@user.errors.count, "error") %> !!
 <div id="errors">
         <% @user.errors.full_messages.each do |error| %>
             <li><%= error %></li>

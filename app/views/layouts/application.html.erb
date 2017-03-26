@@ -1,3 +1,4 @@
+<% provide(:title, "Shahada") %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,6 +18,7 @@
         <% flash.each do |type, text| %>
             <div id="flash" class="callout small <%= type %>" data-closable>
                 <%= text %>
+                <a href="#" class="close">&times;</a>
             </div>
         <% end %>
         <%= yield %>

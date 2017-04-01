@@ -24,8 +24,10 @@
     </div>
     </div>
     <div class="medium-offset-4">
+        <% unless logged_in? %>
     <%=link_to "Sign up as Student", new_user_path , class:"button success round"%> &nbsp; &nbsp; &nbsp;
     <%=link_to "Sign up as Lecturer", "#" , class:"button"%>
+    <% end %>
     </div>
     <h1 id="about">About us</h1>
     <hr>

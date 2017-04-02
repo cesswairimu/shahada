@@ -28,7 +28,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, count: 1
     delete logout_path
     assert_redirected_to root_url
-    assert_select "a[href=?]", users_new_path, count: 1
     assert_select "a[href=?]", logout_path, count: 0
   end
 end

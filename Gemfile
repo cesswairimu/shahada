@@ -43,7 +43,7 @@ group :development, :test do
 end
 group :test do
   gem 'rails-controller-testing'
-  # gem 'minitest-reporters'
+  gem 'minitest-reporters'
 end
 
 group :development do

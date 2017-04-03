@@ -1,1 +1,22 @@
-Hello <%= (@user.f_name).capitalize %>
+<h3 align='center'>Hello <%= (@user.f_name).capitalize %></h3>
+<hr>
+<br><br>
+<h4 align= 'center'> My Information </h4>
+<br>
+<table>
+    <tr> <th>Registration Number </th>
+        <td> <%= @user.reg_no %></td></tr>
+    <tr><th>First Name </th>
+        <td> <%= @user.f_name %></td></tr>
+    <tr><th>Last Name </th>
+        <td> <%= @user.l_name %></td></tr>
+    <tr><th>Email </th>
+        <td> <%= @user.email %></td></tr>
+    <tr><th>Phone No. </th>
+        <td> <%= @user.phone %></td></tr>
+    <tr><th>School </th>
+        <td> <%= @user.school %></td></tr>
+
+</table>
+<p align='center'><%= link_to 'Edit Profile', edit_user_path, class:"button" %></p> 
+

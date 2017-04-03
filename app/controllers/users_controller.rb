@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       redirect_to @user
       flash[:success] = "Congrats!! Your have successfully signed up!!!"
     else
-      flash[:nasty]="OOPSSS !!Check your inputs and try again"
+      flash.now[:nasty]="OOPSSS !!Check your inputs and try again"
       render 'new'
     end
   end

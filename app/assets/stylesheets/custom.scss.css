@@ -21,6 +21,7 @@
 }
 h2,h5{
     display:inline;
+    position:center;
 }
 #errors{
     color: red;

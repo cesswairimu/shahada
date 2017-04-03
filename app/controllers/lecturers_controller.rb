@@ -6,7 +6,7 @@ class LecturersController < ApplicationController
   def create
     @lecturer = Lecturer.new(lec_params)
     if @lecturer.save
-      # login @lecturer
+      login @lecturer
       flash[:success] = "Welcome to Shahada!!!"
       redirect_to @lecturer
     else

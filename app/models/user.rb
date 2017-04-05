@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :password, presence:true, length: { minimum: 6 }
   validates :phone, presence:true, format: { with:NUMBER }
   has_secure_password
+  SCHOOL = ["Computing", "Medicine", "Maths"]
 
   def User.digest(string)
     cost  = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

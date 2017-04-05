@@ -10,4 +10,5 @@ NUMBER = /\d[0-9]\)*\z/
   validates :phone, presence:true, format: { with:NUMBER }
   has_secure_password
 
+  SCHOOL = ["Computing", "Medicine", "Maths"]
 end

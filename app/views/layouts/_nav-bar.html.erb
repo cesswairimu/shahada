@@ -1,7 +1,7 @@
 <div class="top-bar">
     <div class="top-bar-right">
-        <h5> <%= link_to "About", "#about" %></h5>
-        <h5><%= link_to "Contact", "#footer" %></h5>
+        <h5><%= link_to "Contact", "#footer" %></h5>&nbsp; &nbsp;
+        <h5> <%= link_to "Stack", stack_path %></h5>&nbsp; &nbsp;
         <% if logged_in? %>
         <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
             <% else %>

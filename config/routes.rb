@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'questions/new'
+
   get 'lecturers/new'
 
   root              'static_pages#home'

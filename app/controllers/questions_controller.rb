@@ -14,6 +14,9 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def index
+    @questions = Question.all
+  end
   private
   def quiz_params
     params.require(:question).permit(:title, :body, :category, :answer, :tag)

@@ -1,0 +1,16 @@
+<div data-sticky-container>
+    <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+        <div class="title-bar-left"><%= link_to "Questions",questions_path %></div>
+        <div class="title-bar-right"><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp;
+        <%= link_to "Ask", new_question_path %> </div>
+    </div>
+</div>
+
+<h3 align='center'><%= (@question.title).capitalize %></h3>
+<hr>
+<li><strong> Category: &nbsp; &nbsp; </strong>  <%= @question.category %> </li>
+<br>
+<li><strong> Tags: &nbsp; &nbsp; </strong> <%= @question.tag %> </li>
+<br>
+<p><%= @question.body %> </p>
+<br>

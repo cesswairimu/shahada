@@ -7,4 +7,10 @@
     </div>
 </div>
 <h1> Stack </h1>
+    <ol>
+<% @questions.each do |quiz| %>
+        <li> <%= link_to quiz.body, question_path(id: quiz.id) %></li>
+        <br>
+    <% end %>
+        </ol>
 <hr>

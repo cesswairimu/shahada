@@ -9,5 +9,5 @@ NUMBER = /\d[0-9]\)*\z/
   validates :password, presence:true, length: { minimum: 6 }
   validates :phone, presence:true, format: { with:NUMBER }
   has_secure_password
-
+has_many :assignments
 end

@@ -16,3 +16,6 @@
 <li><strong> Tags: &nbsp; &nbsp; </strong> <%= @question.tag %> </li>
 <br>
 <br>
+<p><strong> Answers &nbsp; &nbsp; </strong> 
+<li><%= @question.answer %> </li>
+<%= link_to "Answer" ,edit_question_path , class: "button"%>

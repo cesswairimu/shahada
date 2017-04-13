@@ -1,0 +1,28 @@
+<h1<div data-sticky-container>
+        <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+            <div class="title-bar-left"><%= link_to "Questions",questions_path %></div>
+            <div class="title-bar-right"><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp;
+                <%= link_to "Ask", new_question_path %> </div>
+        </div>
+    </div>
+    <h1 >Answer Here</h1>
+<hr>
+<div class="row">
+    <div class= "medium-6">
+        <%= form_for(@question) do |f| %>
+            <%= render 'shared/errors', object: f.object %>
+            <%= f.label :title %>
+            <%= f.text_field :title, :readonly =>true %>
+            <%= f.label :body %>
+            <%= f.text_area :body, placeholder: "Enter your question here ...", cols:"100", rows: "10", :readonly => true %>
+
+            <%= f.label :category %>
+            <%= f.text_field :category, :readonly => true%>
+            <%= f.label :tag %>
+            <%= f.text_field :tag, placeholder: "Enter tags here separated by commas", :readonly => true %>
+            <%= f.label :Answer %>
+            <%= f.text_area :answer, placeholder: "Enter your answer here ...", cols: "100", rows: "10" %>
+            <%= f.submit "Post Your Answer" ,class: "button"%>
+        <% end %>
+    </div>
+</div>

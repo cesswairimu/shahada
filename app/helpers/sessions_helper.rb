@@ -10,6 +10,9 @@ def current_user
   @current_user ||= User.find_by(id:session[:user_id])
 end
 
+# def lecturer_user
+#   @lecturer_user ||= Lecturer.find_by(id:session[:user_id])
+# end
 
 #Returns true if current_user is not nil
 def logged_in?

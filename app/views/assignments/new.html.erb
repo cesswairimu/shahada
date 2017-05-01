@@ -1,0 +1,18 @@
+<h1>Assignment </h1>
+<div class="row">
+    <div class="medium-4">
+<%= form_for(@assignment) do |f| %>
+<%= render 'shared/errors', object: f.object %>
+    <%= f.label :unit_code%>
+    <%= f.text_field :unit_code%>
+    <%= f.label :unit_name %>
+    <%= f.text_field :unit_name%>
+    <%= f.label :assignment %>
+    <%= f.text_area :title%>
+    <%= f.label :due_date%>
+    <%# <%= f.date_field :due_date %1> %>
+    <%= f.date_select :due_date, :size => "50x4", :start_year => Date.today.year  %>
+    <%= f.submit "Post Assignment", class: "button" %>
+<% end %>
+</div>
+</div>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'questions/new'
+  get 'assignments/new'
 
   get 'lecturers/new'
 
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   resources :users
   resources :lecturers
   resources :questions
+  resources :assignments
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

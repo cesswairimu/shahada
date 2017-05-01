@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome back "
       login user ||  lecturer
       redirect_to user ||  lecturer
+      debugger
     else
       flash.now[:nasty] = "Invalid credentials  for login"
       render 'new'

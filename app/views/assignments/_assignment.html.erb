@@ -1,0 +1,12 @@
+<%= form_for(@assignment) do |f| %>
+    <%= f.label :unit_code%>
+    <%= f.text_field :unit_code%>
+    <%= f.label :unit_name %>
+    <%= f.text_field :unit_name%>
+    <%= f.label :assignment %>
+    <%= f.text_area :title%>
+    <%= f.label :due_date%>
+    <%= f.date_time :time %>
+
+
+<% end %>

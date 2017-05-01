@@ -4,7 +4,9 @@
         <h5><%= link_to "Contact", "#footer" %></h5>
         <% if logged_in? %>
         <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
-            <% else %>
+    <% elsif signed_in? %>
+        <h5><%= link_to "Signout", signout_path, method: :delete %></h5>
+        <% else %>
         <h5><%= link_to "Login", login_path %></h5>
         <% end %>
     </div>

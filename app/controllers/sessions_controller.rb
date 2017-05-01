@@ -3,13 +3,10 @@ class SessionsController < ApplicationController
   end
   def create
     user = User.find_by(email: params[:session][:email])||
-    lecturer = Lecturer.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])||
-     lecturer && lecturer.authenticate(params[:session][:password])
       flash[:success] = "Welcome back "
-      login user ||  lecturer
-      redirect_to user ||  lecturer
-      debugger
+      log_in user 
+      redirect_to user 
     else
       flash.now[:nasty] = "Invalid credentials  for login"
       render 'new'

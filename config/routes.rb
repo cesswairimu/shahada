@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get    'signin' => 'logins#new'
   post   'signin'  => 'logins#create'
-  delete 'signout' => 'logins#delete'
+  delete 'signout' => 'logins#destroy'
    resources :users
   resources :lecturers
   resources :assignments

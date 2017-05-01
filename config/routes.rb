@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :users
   resources :lecturers
+  resources :assignments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

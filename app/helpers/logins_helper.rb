@@ -8,7 +8,6 @@ module LoginsHelper
   end
 
 
-  #Returns true if current_user is not nil
   def signed_in?
     !current_lecturer.nil?
   end

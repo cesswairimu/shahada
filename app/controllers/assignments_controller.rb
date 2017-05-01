@@ -1,14 +1,13 @@
 class AssignmentsController < ApplicationController
   before_action :logged_in_lecturer, only:[:create, :edit, :update, :destroy]
   def new
-  @assignment = Assignment.new
+  @assignment = current_lecturer.assignments.build
   end
 def create
-  @assignment = Assignment.new(assign_params)
-  # @assignment = lecturer.assignments.build(assign_params)
+  @assignment = current_lecturer.assignments.build(assign_params)
   if @assignment.save
     flash[:success] = "Your assignment is posted"
-    redirect_to @lecturer
+    redirect_to current_lecturer
   else
     flash[:nasty] = "Please check the assignment's errors"
     render 'new'

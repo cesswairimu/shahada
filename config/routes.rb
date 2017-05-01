@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'logins/new'
+
   get 'assignments/new'
 
   get 'lecturers/new'

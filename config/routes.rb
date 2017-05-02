@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'lecturers/new'
 
   root              'static_pages#home'
-  get    'login'  => 'sessions#new'
-  post   'login'  => 'sessions#create'
+  get    'log_in'  => 'sessions#new'
+  post   'log_in'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get    'signin' => 'logins#new'
   post   'signin'  => 'logins#create'

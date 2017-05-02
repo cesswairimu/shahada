@@ -4,8 +4,10 @@
         <h5> <%= link_to "Stack", questions_path %></h5>&nbsp; &nbsp;
         <% if logged_in? %>
         <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
-            <% else %>
-        <h5><%= link_to "Login", login_path %></h5>
+    <% elsif signed_in? %>
+        <h5><%= link_to "Signout", signout_path, method: :delete %></h5>
+        <% else %>
+        <h5><%= link_to "Login", log_in_path %></h5>
         <% end %>
     </div>
     <div class="top-bar-left">

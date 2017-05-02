@@ -1,15 +1,14 @@
 <h1>Log In</h1>
-<hr>
 <div class="row">
     <div class="medium-6 offest-3 columns">
-<%= form_for(:session,url: log_in_path) do |f| %>
+<%= form_for(:login,url: signin_path) do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email,  placeholder: 'Email'  %>
     <%= f.label :password %>
     <%= f.password_field :password, placeholder: 'Password'  %>
     <%= f.submit "Login", class:"button" %>
 <% end %>
-<p> New here?? <%= link_to "Sign up", new_user_path %>
+<p> New here?? <%= link_to "Sign up", new_lecturer_path %>
 </div>
 </div>
-    
+ 

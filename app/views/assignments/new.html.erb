@@ -10,8 +10,9 @@
             <%= f.label :assignment %>
             <%= f.text_area :title%>
             <%= f.label :due_date%>
-            <%# <%= f.date_field :due_date %1> %>
-            <%= f.date_select :due_date, :size => "50x4", :start_year => Date.today.year  %>
+            <%= date_select(:assignment, :due_date, { :default => @the_date, :include_blank=> @the_date.nil?  })%>
+
+
             <%= f.submit "Post Assignment", class: "button" %>
         <% end %>
     </div>

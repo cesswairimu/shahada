@@ -1,9 +1,10 @@
 class Assignment < ApplicationRecord
+  mount_uploader :attachment, AttachmentUploader
+  validates :attachment, presence: true
   belongs_to :lecturer
   validate :future
   validates :title, presence:true
   validates :unit_code, presence:true
-  validates :unit_name, presence:true
   validates :due_date, presence:true
 
   def future

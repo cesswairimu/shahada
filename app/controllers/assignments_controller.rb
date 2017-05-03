@@ -16,6 +16,6 @@ end
 
 private
 def assign_params
-  params.require(:assignment).permit( :title, :unit_code, :unit_name, :due_date)
+  params.require(:assignment).permit( :title, :unit_code, :attachment, :due_date)
 end
 end

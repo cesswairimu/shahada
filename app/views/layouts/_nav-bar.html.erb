@@ -3,15 +3,23 @@
         <h5><%= link_to "Contact", "#footer" %></h5>&nbsp; &nbsp;
         <h5> <%= link_to "Stack", questions_path %></h5>&nbsp; &nbsp;
         <% if logged_in? %>
-        <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
-    <% elsif signed_in? %>
-        <h5><%= link_to "Signout", signout_path, method: :delete %></h5>
+            <h5> <%= link_to "Assignments", assignments_path %></h5>&nbsp; &nbsp;
+            <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
+        <% elsif signed_in? %>
+            <h5> <%= link_to "Assignments", assignments_path %></h5>&nbsp; &nbsp;
+            <h5><%= link_to "Signout", signout_path, method: :delete %></h5>
         <% else %>
-        <h5><%= link_to "Login", log_in_path %></h5>
+            <h5><%= link_to "Student", log_in_path %></h5>&nbsp; &nbsp;
+            <h5><%= link_to " Lecturer", signin_path %></h5>
         <% end %>
     </div>
     <div class="top-bar-left">
+        <h2><%= link_to "Shahada", root_url %></h2> &nbsp; &nbsp;
+        <% if logged_in? %>
+            <h3><%= link_to fa_icon('home' ),current_user %></h3>
+        <% elsif signed_in? %>
+            <%= link_to fa_icon('home' ),current_lecturer %>
+        <% end %>
         <%# <%= link_to  image_tag("logo1.png"), root_url%> 
-            <h2><%= link_to "Shahada", root_url %></h2>
     </div>
 </div>

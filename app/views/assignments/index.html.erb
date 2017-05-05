@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <th> Unit Code</th>
+        <th> Description</th>
+        <th> Lecturer</th>
+        <th> School</th>
+        <th> Attachment</th>
+        <th> Due Date</th>
+        <% @assignments.each do |work| %>
+
+            <tr>
+                <td><%= work.unit_code %>
+                <td><%= work.title %></td>
+                <td><%= work.lecturer.f_name %>
+                <td><%= work.lecturer.school %>
+                <% unless work.attachment.blank? %>
+                    <td><%= link_to "Download Assignment", work.attachment_url %></td>
+                <% else %>
+                    <td> No Attachment </td>
+                <% end %>
+            <td> <%= (work.due_date - Date.today).to_i %> days remaining</td>
+            <% end %>
+            </tr>
+
+</table>

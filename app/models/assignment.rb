@@ -1,6 +1,5 @@
 class Assignment < ApplicationRecord
   mount_uploader :attachment, AttachmentUploader
-  validates :attachment, presence: true
   belongs_to :lecturer
   validate :future
   validates :title, presence:true

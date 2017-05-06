@@ -6,7 +6,7 @@ class LecturersController < ApplicationController
   def create
     @lecturer = Lecturer.new(lec_params)
     if @lecturer.save
-      login @lecturer
+      sign_in @lecturer
       flash[:success] = "Welcome to Shahada!!!"
       redirect_to @lecturer
     else
@@ -18,6 +18,7 @@ class LecturersController < ApplicationController
   def show
     @lecturer = Lecturer.find(params[:id])
     # debugger
+  @assignments = @lecturer.assignments
   end
 
   def edit

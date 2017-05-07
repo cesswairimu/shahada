@@ -19,6 +19,10 @@
 
 </table>
 <br>
+<h4> Assignments </h4>
+<% @assignments.each do |assignment| %>
+<li>   <%= assignment. title %></li>
+<% end %>
 <p align='center'><%= link_to 'Edit Profile', edit_lecturer_path, class:"button" %>
 <%= link_to 'New Assignment', new_assignment_path, class:"button" %>
 </p>

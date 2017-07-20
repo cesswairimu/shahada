@@ -1,8 +1,19 @@
 <h2> Students</h2>
-<% @users.each do |user| %>
-    <li>
-    <%= user.f_name%>
-    <%= user.l_name %> 
-    <%=user.school %>
-    </li>
-    <% end %>
+<table>
+    <thead>
+        <tr>
+            <th> No.</th>
+            <th>First Name </th>
+            <th>Last Name </th>
+            <th>School </th>
+        </tr>
+    </thead>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.id %></td>
+            <td> <%= user.f_name%></td>
+            <td><%= user.l_name %> </td>
+            <td> <%=user.school %></td>
+        <% end %>
+        </tr>
+</table>

@@ -25,6 +25,10 @@ class LecturersController < ApplicationController
     @lecturer = Lecturer.find(params[:id])
   end
 
+  def index
+    @lecturers = Lecturer.all
+  end
+
   def update
     @lecturer = Lecturer.find(params[:id])
     if  @lecturer.update_attributes(lec_params)

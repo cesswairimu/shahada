@@ -16,7 +16,7 @@
     <div class="top-bar-left">
         <h2><%= link_to "Shahada", root_url %></h2> &nbsp; &nbsp;
         <% if logged_in? %>
-            <h3><%= link_to fa_icon('home' ),current_user %></h3>
+            <h2><%= link_to fa_icon('home' ),current_user %></h2>
         <% elsif signed_in? %>
             <%= link_to fa_icon('home' ),current_lecturer %>
         <% end %>

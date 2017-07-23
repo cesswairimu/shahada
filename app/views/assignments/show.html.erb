@@ -1,0 +1,19 @@
+<h1><%= @assignment.title %></h1>
+ &nbsp; &nbsp;&nbsp;&nbsp; <%= link_to "Edit", "#", class:"button"%>
+<%= link_to "Delete", "#", class: "button" %>
+<table>
+    <tr>
+        <th>Unit code </th>
+        <td><%= @assignment.unit_code %></td>
+    </tr>
+    <tr>
+        <th>Attachment </th>
+        <td><%= @assignment.attachment %></td>
+    </tr>
+    <tr>
+        <th>Due date </th>
+        <td><%= @assignment.due_date%></td>
+    </tr>
+
+</table>
+

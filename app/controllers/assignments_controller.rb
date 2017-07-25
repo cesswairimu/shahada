@@ -40,6 +40,11 @@ class AssignmentsController < ApplicationController
     @assignment = current_lecturer.assignments.find(params[:id])
   end
 
+  def destroy
+    Assignment.find(params[:id]).destroy
+    redirect_to current_lecturer
+  end
+
   private
 
   def assign_params

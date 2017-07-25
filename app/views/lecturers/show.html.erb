@@ -19,10 +19,24 @@
 
 </table>
 <br>
-<h4> Assignments </h4>
-<% @assignments.each do |assignment| %>
-    <li>  <%=link_to (assignment.title),assignment_path(id: assignment.id) %></li>
-<% end %>
 <p align='center'><%= link_to 'Edit Profile', edit_lecturer_path, class:"button" %>
-<%= link_to 'New Assignment', new_assignment_path, class:"button" %>
+    <%= link_to 'New Assignment', new_assignment_path, class:"button" %>
 </p>
+<hr>
+<div class="row">
+    <div class= "medium-4 columns">
+    </div>
+
+    <div class= "medium-8 columns">
+        <h4><u> Assignments</u> </h4>
+        <ol>
+            <% @assignments.each do |assignment| %>
+                <li>  <%=link_to (assignment.title),assignment_path(id: assignment.id) %> &nbsp; &nbsp;
+                    <%= link_to fa_icon('trash'),(assignment), method: :delete, data:{confirm: "Delete?"} %> &nbsp; &nbsp;
+                    <%= link_to fa_icon('pencil'), edit_assignment_path(id:assignment.id) %>
+                </li>
+            <% end %>
+        </ol>
+    </div>
+</div>
+<

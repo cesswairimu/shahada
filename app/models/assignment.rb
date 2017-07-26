@@ -1,5 +1,6 @@
 class Assignment < ApplicationRecord
   mount_uploader :attachment, AttachmentUploader
+  default_scope -> { where("due_date IS NULL OR due_date > ?", Time.now)  }
   belongs_to :lecturer
   validate :future
   validates :title, presence:true

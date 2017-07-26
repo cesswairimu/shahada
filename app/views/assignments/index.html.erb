@@ -6,15 +6,15 @@
         <th> School</th>
         <th> Attachment</th>
         <th> Due Date</th>
-        <% @assignments.each do |work| %>
-
+        <%  @assignments.each do |work| %>
             <tr>
                 <td><%= work.unit_code %>
                 <td><%= work.title %></td>
                 <td><%= work.lecturer.f_name %>
                 <td><%= work.lecturer.school %>
                 <% unless work.attachment.blank? %>
-                    <td><%= link_to "Download Assignment", work.attachment_url %></td>
+                    <%# <td><%= link_to "Download Assignment", work.attachment_url %1></td> %>
+                    <td> <%= image_tag work.attachment_url(:thumb) %></td>
                 <% else %>
                     <td> No Attachment </td>
                 <% end %>

@@ -78,3 +78,6 @@
         </div>
 </div>
 
+<% cache 'word_of_the_hour', expires_in: Time.now.beginning_of_hour + 2.seconds do %>
+    <%= %W(happy developer starts to hack in reddis).sample %>
+    <% end %>

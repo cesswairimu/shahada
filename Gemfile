@@ -42,11 +42,14 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'carrierwave', '~> 0.11.0'
   gem 'mini_magick', '3.8.0'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'rspec-rails'
 
 end
 group :test do
   gem 'rails-controller-testing'
   gem 'minitest-reporters'
+  gem 'cucumber'
 end
 
 group :development do
@@ -64,3 +67,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'redis-rails'

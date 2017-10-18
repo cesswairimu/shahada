@@ -47,8 +47,11 @@ group :development, :test do
 
 end
 group :test do
-  gem 'rails-controller-testing'
-  gem 'minitest-reporters'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
   gem 'cucumber'
 end
 

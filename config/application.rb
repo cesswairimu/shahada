@@ -11,5 +11,19 @@ module Shahada
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    #configuring which specs rspec will  generate 
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        routing_specs: false,
+        helper_specs: false,
+        controller_specs: true,
+        request_specs: false
+      #generate factories instead of fixtures
+        g.fixture_replacement :factory_girl, dir: "spec/factories"
+    end
+        
+
   end
 end

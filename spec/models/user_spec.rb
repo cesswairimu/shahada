@@ -1,17 +1,15 @@
 require 'rails_helper'
+
 describe User do
+  it 'has a valid factory' do
+    expect(FactoryGirl.build(:user)).to be_valid
+  end
+
   it 'is valid with a f_name, l_name, phone, reg_no and email' do
-  user = User.new(
-    f_name: 'Joe',
-    l_name: 'Doe',
-    phone: '0120778637',
-    email: "joe@doe.com",
-    reg_no: "mat/34/2017",
-    password: "cecilia",
-    school: "Computing"
-  )
+  user = FactoryGirl.create(:user)
   expect(user).to be_valid
   end
+
   it 'is invalid without an email' do
     user = User.new(email: nil)
     user.valid?
@@ -40,19 +38,21 @@ describe User do
     user = User.new(phone: nil)
     user.valid?
     expect(user.errors[:phone]).to include("can't be blank")
-    end
+  end
 
   it 'returns phone as numeric'
   it 'returns full name as a string' do
-user = User.new(f_name: "Joe", l_name: "Doe")
-expect(user.name).to eq('Joe Doe')
+    user = User.new(f_name: "Joe", l_name: "Doe")
+    expect(user.name).to eq('Joe Doe')
   end
+
   it 'is invalid with a duplicate email' do
-    User.create(f_name: "Bunch", l_name: "Fav", email: "bunch@fav.com", phone:"0754689546", password: "wierdowierdo", reg_no: "MAT/45/2017")
-    user = User.new(f_name: "Cess", l_name: "Fav", email: "bunch@fav.com",  phone: "0754689546", password: "wierdowierdo", reg_no: "MAT/435/2017")
+    FactoryGirl.create(:user, email: "bunch@fav.com")
+    user = FactoryGirl.build(:user,  email: "bunch@fav.com")
     user.valid?
     expect(user.errors[:email]).to include("has already been taken")
   end
+
   it 'is invalid if password is not more than 6 characters' do
     skip
     user = User.new(password: "e")

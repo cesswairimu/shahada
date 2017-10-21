@@ -55,10 +55,9 @@ describe User do
   end
 
   it 'is invalid if password is not more than 6 characters' do
-    skip
     user = User.new(password: "e")
     user.valid?
-    expect(user.errors[:password]).to include("is too short")
+    expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
   end
 end
 

@@ -11,4 +11,8 @@ class Lecturer < ApplicationRecord
   has_secure_password
   SCHOOL = ["Computing", "Medicine", "Maths"]
   has_many :assignments
+
+  def name
+    [f_name, l_name].join(' ')
+  end
 end

@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to @user
+      redirect_to root_url
       flash[:success] = "Congrats!! Your have successfully signed up!!!"
+      flash[:success] = "Login to the application"
     else
       flash.now[:nasty]="OOPSSS !!Check your inputs and try again"
       render 'new'
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
       render 'edit'
       
     end
+    
   end
 
   private

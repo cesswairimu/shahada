@@ -8,16 +8,21 @@ describe UsersController  do
       expect(response).to render_template(:new)
     end
     it 'assigns a new User to @user' do
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
     end
   end
 
   context 'show' do
     it 'renders a template show' do
-      skip
-      get :show, params: { user: FactoryGirl.attributes_for(:user) }
+      user = create(:user)
+      get :show, params: {id: user} 
       expect(response).to render_template(:show)
     end
     it 'assigns the requested user to @user' do
+      user = create(:user)
+      get :show, params: { id: user }
+      expect(assigns(:user)).to eq(user)
     end
   end
 
@@ -28,34 +33,55 @@ describe UsersController  do
     expect(response).to render_template(:index)
   end
  it 'populates an array all users' do
+   bunch = create(:user, f_name: "Bunch")
+   buzz = create(:user, f_name: "Buzz")
+   get :index
+   expect(assigns(:users)).to match_array([bunch,buzz])
  end
   end
 
-context 'edit' do
- it 'renders a template edit' do
-   skip
-    get :edit, params: { user: FactoryGirl.attributes_for(:user) }
-    expect(response).to render_template(:edit)
-  end
- it 'assigns the requested user to @user' do
- end
-end
-
-describe 'POST #create' do
-  context 'with valid data' do
-    it 'saves the new contact in the DB' do
-
+  context 'edit' do
+    it 'assigns the requested user to @user' do
+      user = create(:user)
+      get :edit, params: { id: user }
+      expect(assigns(:user)).to eq(user)
     end
-    it 'redirects to root_url upon save' do
-      post :create, params:{ user: FactoryGirl.attributes_for(:user) }
-      expect(response).to redirect_to root_url
+    it 'renders a template edit' do
+      user = create(:user)
+      get :edit, params: { id: user }
+      expect(response).to render_template(:edit)
     end
   end
+
+  describe 'POST #create' do
+    before :each do
+      @users = [attributes_for(:user)]
+    end
+    context 'with valid data' do
+      it 'saves the new user in the DB' do
+       expect{
+        post :create, params:{ user: attributes_for(:user) }
+       }.to change(User, :count).by(1) 
+      end
+
+
+      it 'redirects to user #show upon save' do
+        post :create, params:{ user: attributes_for(:user) }
+        expect(response).to redirect_to user_path(assigns[:user])
+      end
+    end
 
   context 'with invalid data' do
     it 're-renders the template new' do
+      post :create,
+      user: attributes_for(:user_invalid)
+      expect(response).to render_template(:new)
     end
     it 'does not save the new @contact' do
+    expect{
+        post :create, params:{ user: attributes_for(:user1) }
+       }.not_to change(User, :count)
+o
     end
   end
 

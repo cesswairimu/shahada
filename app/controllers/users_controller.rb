@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to root_url
+      redirect_to @user
       flash[:success] = "Congrats!! Your have successfully signed up!!!"
       flash[:success] = "Login to the application"
     else

@@ -9,7 +9,7 @@ describe LecturersController  do
     end
     it 'assigns a new lecturer to @lecturer' do
       get :new
-      expect(assigns(:lecturer)).to be_a_new(lecturer)
+      expect(assigns(:lecturer)).to be_a_new(Lecturer)
     end
   end
 
@@ -59,9 +59,9 @@ describe LecturersController  do
     end
     context 'with valid data' do
       it 'saves the new lecturer in the DB' do
-       expect{
-        post :create, params:{ lecturer: attributes_for(:lecturer) }
-       }.to change(lecturer, :count).by(1) 
+        expect{
+          post :create, params:{ lecturer: attributes_for(:lecturer) }
+        }.to change(Lecturer, :count).by(1) 
       end
 
 
@@ -71,19 +71,18 @@ describe LecturersController  do
       end
     end
 
-  context 'with invalid data' do
-    it 're-renders the template new' do
-      post :create,
-      lecturer: attributes_for(:lecturer_invalid)
-      expect(response).to render_template(:new)
+    context 'with invalid data' do
+      it 're-renders the template new' do
+        post :create, params: {
+          lecturer: attributes_for(:lecturer_invalid)}
+        expect(response).to render_template(:new)
+      end
+      it 'does not save the new @contact' do
+        expect{
+          post :create, params:{ lecturer: attributes_for(:lecturer_invalid) }
+        }.not_to change(Lecturer, :count)
+      end
     end
-    it 'does not save the new @contact' do
-    expect{
-        post :create, params:{ lecturer: attributes_for(:lecturer1) }
-       }.not_to change(lecturer, :count)
-o
-    end
-  end
 
  end
  end

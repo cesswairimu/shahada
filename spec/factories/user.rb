@@ -9,4 +9,7 @@ FactoryGirl.define do
     password_confirmation "wairimu"
     sequence (:email) { |n|  "felsi#{n}@gmail.com" }
   end
+  factory :user1, class: User  do
+    f_name nil
+  end
 end

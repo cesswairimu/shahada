@@ -73,15 +73,14 @@ describe UsersController  do
 
   context 'with invalid data' do
     it 're-renders the template new' do
-      post :create,
-      user: attributes_for(:user_invalid)
+      post :create,params:{
+    user: attributes_for(:user1) }
       expect(response).to render_template(:new)
     end
     it 'does not save the new @contact' do
     expect{
         post :create, params:{ user: attributes_for(:user1) }
        }.not_to change(User, :count)
-o
     end
   end
 

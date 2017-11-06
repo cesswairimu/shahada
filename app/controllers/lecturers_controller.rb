@@ -39,6 +39,12 @@ class LecturersController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    Lecturer.find(params[:id]).destroy
+    flash[:success] = "Lecturer Deleted"
+  end
+
   private
   def lec_params
     params.require(:lecturer).permit(:f_name,:l_name,:id_no, :school, :phone, :email, :password, :password_confirmation)

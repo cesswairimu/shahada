@@ -83,32 +83,52 @@ describe LecturersController  do
         }.not_to change(Lecturer, :count)
       end
     end
-
  end
  end
 
 
-describe "PATCH #update" do
-  skip
-  context "with valid attributes" do
-    it "updates the lecturer info and redirects" do
-    end
-    it 'redirects to the lecturer profile' do
-    end
-  end
-  context "with invalid attributes" do
-    it "does not change the lecturer details" do
-    end
-    it 're-render the edit template' do
-    end
-  end
+# describe "PATCH #update" do
+
+#   let(:lecturer) { FactoryGirl.create(:lecturer)}
+
+#   before :each do 
+#     Lecturer.stub.(:find).returns(lecturer)
+#   end
+
+#   context "with valid attributes" do
+#     it "should redirect to the lecturer path on successful save" do
+#       lecturer.should_receive(:update_attributes).and_return true
+#       put :update, lecturer, {}
+#       response.should redirect_to(lecturer)
+#     end
+#     it 'locates the requested @lecturer' do
+#       skip
+#       patch :update, id: lecturer, lecturer: attributes_for(lecturer)
+#       expect(assigns[:lecturer]).to eq(lecturer)
+#     end
+#     it "updates the lecturer info and redirects" do
+
+#     end
+#     it 'redirects to the lecturer profile' do
+#     end
+#   end
+#   context "with invalid attributes" do
+#     it "does not change the lecturer details" do
+#     end
+#     it 're-render the edit template' do
+#     end
+#   end
 
   describe 'destroy' do
+    before :each do
+      @lecturer = create(:lecturer)
+    end
     it 'deletes the lecturer from the database' do
+      expect{ delete :destroy, id: @lecturer
+      }.to change(Lecturer, :count).by(1)
     end
     it 'redirects to lecturers#index' do
     end
     end
-end
 
 

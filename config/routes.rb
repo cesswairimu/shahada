@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   get    'signin' => 'logins#new'
   post   'signin'  => 'logins#create'
   delete 'signout' => 'logins#destroy'
-   resources :users
+  resources :users
   resources :lecturers
   resources :questions
   resources :assignments
+  resources :account_activations, only: :edit
   get "*path" => redirect("/")
 end

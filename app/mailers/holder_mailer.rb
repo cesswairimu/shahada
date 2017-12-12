@@ -5,9 +5,13 @@ class HolderMailer < ApplicationMailer
   #
   #   en.holder_mailer.account_activation.subject
   #
-  def account_activation
-    @greeting = "Hi"
+  def account_activation(holder)
+    @holder = holder
+    mail to: holder.email, subject: "Account activation"
+  end
 
+  def password_reset
+    @greeting = "Hello"
     mail to: "to@example.org"
   end
 
@@ -16,9 +20,4 @@ class HolderMailer < ApplicationMailer
   #
   #   en.holder_mailer.password_reset.subject
   #
-  def password_reset
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
-  end
 end

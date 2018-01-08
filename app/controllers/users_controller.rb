@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(user_id)
   end
 
   def index
@@ -25,11 +25,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(user_id)
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(user_id)
     if @user.update_attributes(user_params)
       flash[:success] = "Successful profile edit"
       redirect_to @user
@@ -46,4 +46,9 @@ class UsersController < ApplicationController
     params.require(:user).permit( :reg_no, :f_name, :l_name, :email,
                                  :phone, :school, :password, :password_confirmation )
   end
+
+  def user_id
+    params[:id]
+  end
+
 end

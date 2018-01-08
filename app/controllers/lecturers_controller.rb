@@ -16,13 +16,12 @@ class LecturersController < ApplicationController
   end
 
   def show
-    @lecturer = Lecturer.find(params[:id])
-    # debugger
+    @lecturer = Lecturer.find(lec_id)
   @assignments = @lecturer.assignments
   end
 
   def edit
-    @lecturer = Lecturer.find(params[:id])
+    @lecturer = Lecturer.find(lec_id)
   end
 
   def index
@@ -30,7 +29,7 @@ class LecturersController < ApplicationController
   end
 
   def update
-    @lecturer = Lecturer.find(params[:id])
+    @lecturer = Lecturer.find(lec_id)
     if  @lecturer.update_attributes(lec_params)
       flash[:success] = 'Profile updated!!'
       redirect_to @lecturer
@@ -41,7 +40,7 @@ class LecturersController < ApplicationController
   end
 
   def destroy
-    Lecturer.find(params[:id]).destroy
+    Lecturer.find(lec_id).destroy
     flash[:success] = "Lecturer Deleted"
   end
 
@@ -49,4 +48,9 @@ class LecturersController < ApplicationController
   def lec_params
     params.require(:lecturer).permit(:f_name,:l_name,:id_no, :school, :phone, :email, :password, :password_confirmation)
   end
+
+  def lec_id
+    params[:id]
+  end
+
 end

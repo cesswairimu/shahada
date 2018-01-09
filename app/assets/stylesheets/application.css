@@ -15,6 +15,7 @@
  *= require foundation_and_overrides
  *= require animate
  *= require font-awesome
+ *= require simple_calendar
 
  */
 body{

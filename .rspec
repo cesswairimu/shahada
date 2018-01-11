@@ -1,2 +1,3 @@
 --require spec_helper
--f d
+-fd
+-- format documentation

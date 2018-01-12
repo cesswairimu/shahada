@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  before_create :create_activation
-  before_save :downcase_email
+  # before_create :create_activation
+  # before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :f_name, presence: true, length: { maximum: 10 }

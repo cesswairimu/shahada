@@ -1,6 +1,6 @@
 class Lecturer < ApplicationRecord
-  before_create :create_activation
-  before_save :downcase_email
+  # before_create :create_activation
+  # before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :f_name, presence: true, length: { maximum: 10 }
@@ -35,6 +35,6 @@ class Lecturer < ApplicationRecord
   end
   # Returns a random token.
   def new_token
-  SecureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64
   end
 end

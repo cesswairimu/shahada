@@ -85,37 +85,54 @@ RSpec.describe LecturersController, :type => :controller  do
     end
   end
 
-  # describe "PATCH #update" do
+  describe "PATCH #update" do
 
-  #   let(:lecturer) { FactoryGirl.create(:lecturer)}
+    before :each do 
+      @lecturer = create(:lecturer)
+    end
 
-  #   before :each do 
-  #     Lecturer.stub.(:find).returns(lecturer)
-  #   end
+    context "with valid attributes" do
 
-  #   context "with valid attributes" do
-  #     it "should redirect to the lecturer path on successful save" do
-  #       lecturer.should_receive(:update_attributes).and_return true
-  #       put :update, lecturer, {}
-  #       response.should redirect_to(lecturer)
-  #     end
-  #     it 'locates the requested @lecturer' do
-  #       skip
-  #       patch :update, id: lecturer, lecturer: attributes_for(lecturer)
-  #       expect(assigns[:lecturer]).to eq(lecturer)
-  #     end
-  #     it "updates the lecturer info and redirects" do
+      it "should update lecturer info" do
+        patch :update, params:{
+          id: @lecturer, lecturer: attributes_for(:lecturer, f_name: "Cess", l_name: "Terrence"  )
+        }
+        @lecturer.reload
+        expect(@lecturer.f_name).to eq("Cess")
+        expect(@lecturer.l_name).to eq("Terrence")
+      end
 
-  #     end
-  #     it 'redirects to the lecturer profile' do
-  #     end
-  #   end
-  #   context "with invalid attributes" do
-  #     it "does not change the lecturer details" do
-  #     end
-  #     it 're-render the edit template' do
-  #     end
-  #   end
+      it 'locates the requested @lecturer' do
+        patch :update, params:{
+          id: @lecturer, lecturer: attributes_for(:lecturer)
+        }
+        expect(assigns[:lecturer]).to eq(@lecturer)
+      end
+
+      it 'redirects to the lecturer profile' do
+        patch :update, params:{
+          id: @lecturer, lecturer: attributes_for(:lecturer)
+        }
+        expect(response).to redirect_to(@lecturer)
+      end
+    end
+    context "with invalid attributes" do
+      it "does not change the lecturer details" do
+        patch :update, params:{
+          id: @lecturer, lecturer: attributes_for(:lecturer, f_name: nil, l_name: "Terrence"  )
+        }
+        @lecturer.reload
+        expect(@lecturer.f_name).to eq("Cortana")
+        expect(@lecturer.l_name).not_to eq("Terrence")
+      end
+      it 're-render the edit template' do
+        patch :update, params:{
+          id: @lecturer, lecturer: attributes_for(:lecturer_invalid)
+        }
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
 
   describe 'destroy' do
     before :each do

@@ -85,22 +85,48 @@ describe UsersController  do
   end
 
  end
- end
 
 
-describe "PATCH #update" do
-  skip
+  describe "PATCH #update" do
+  before :each do
+    @user = create(:user)
+  end
+
   context "with valid attributes" do
-    it "updates the user info and redirects" do
+
+    it "locates the requested @user" do
+      patch :update, params: { id: @user, user: attributes_for(:user) }
+      expect(assigns(:user)).to eq(@user)
+    end
+
+    it "updates the user info" do
+      patch :update, params: { 
+        id: @user, user: attributes_for(:user, f_name: "Foo", l_name: "Bar")
+      }
+      @user.reload
+      expect(@user.f_name).to eq("Foo")
+      expect(@user.l_name).to eq("Bar")
     end
     it 'redirects to the user profile' do
+      patch :update, params: { id: @user, user: attributes_for(:user) }
+      expect(response).to redirect_to(@user)
     end
   end
   context "with invalid attributes" do
+
     it "does not change the user details" do
+      patch :update, params: { 
+        id: @user, user: attributes_for(:user, f_name: "Foo", l_name: nil)
+      }
+      @user.reload
+      expect(@user.f_name).not_to eq("Foo")
     end
+
     it 're-render the edit template' do
+      patch :update, params: { id: @user, user: attributes_for(:user1) }
+      expect(response).to render_template(:edit)
     end
+  end
   end
 
   describe 'destroy' do

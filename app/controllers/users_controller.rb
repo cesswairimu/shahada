@@ -36,9 +36,13 @@ class UsersController < ApplicationController
     else
       flash[:nasty]="Check your inputs and try again"
       render 'edit'
-      
     end
-    
+  end
+
+  def destroy
+     User.find(user_id).destroy
+    flash[:success] = "User has been deleted"
+    redirect_to users_path
   end
 
   private

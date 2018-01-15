@@ -130,9 +130,19 @@ describe UsersController  do
   end
 
   describe 'destroy' do
-    it 'deletes the user from the database' do
+    before :each do
+      @user = create(:user)
     end
+
+    it 'deletes the user from the database' do
+      expect{ 
+        delete :destroy, params: { id: @user  }
+      }.to change(User, :count).by(-1)
+    end
+
     it 'redirects to users#index' do
+      delete :destroy, params: { id: @user  }
+      expect(response).to redirect_to(users_path)
     end
     end
 end

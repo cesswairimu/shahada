@@ -42,6 +42,7 @@ class LecturersController < ApplicationController
   def destroy
     Lecturer.find(lec_id).destroy
     flash[:success] = "Lecturer Deleted"
+    redirect_to lecturers_path
   end
 
   private

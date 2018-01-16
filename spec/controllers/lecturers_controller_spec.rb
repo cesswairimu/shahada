@@ -143,6 +143,8 @@ RSpec.describe LecturersController, :type => :controller  do
       }.to change(Lecturer, :count).by(-1)
     end
     it 'redirects to lecturers#index' do
+      delete :destroy, params: { id: @lecturer  }
+      expect(response).to redirect_to(lecturers_path)
     end
   end
 end

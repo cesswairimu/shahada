@@ -10,7 +10,7 @@ class LecturersController < ApplicationController
       flash[:success] = "Welcome to Shahada!!!"
       redirect_to @lecturer
     else
-      flash.now[:nasty]="OOPSSS !!Check your inputs and try again"
+      flash.now[:nasty]="OOPS!! Check your input and try again"
       render 'new'
     end
   end

@@ -68,6 +68,7 @@ describe UsersController  do
       it 'redirects to user #show upon save' do
         post :create, params:{ user: attributes_for(:user) }
         expect(response).to redirect_to user_path(assigns[:user])
+        expect(flash[:success]).to eq("Congrats!! You have successfully signed up!!!")
       end
     end
 
@@ -76,6 +77,7 @@ describe UsersController  do
       post :create,params:{
     user: attributes_for(:user1) }
       expect(response).to render_template(:new)
+      expect(flash[:nasty]).to eq("OOPSSS !!Check your input and try again")
     end
     it 'does not save the new @contact' do
     expect{
@@ -110,6 +112,7 @@ describe UsersController  do
     it 'redirects to the user profile' do
       patch :update, params: { id: @user, user: attributes_for(:user) }
       expect(response).to redirect_to(@user)
+      expect(flash[:success]).to eq("Successful profile edit")
     end
   end
   context "with invalid attributes" do
@@ -125,6 +128,7 @@ describe UsersController  do
     it 're-render the edit template' do
       patch :update, params: { id: @user, user: attributes_for(:user1) }
       expect(response).to render_template(:edit)
+      expect(flash[:nasty]).to eq("Check your input and try again")
     end
   end
   end
@@ -143,6 +147,7 @@ describe UsersController  do
     it 'redirects to users#index' do
       delete :destroy, params: { id: @user  }
       expect(response).to redirect_to(users_path)
+      expect(flash[:success]).to eq("User has been deleted")
     end
     end
 end

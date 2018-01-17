@@ -58,10 +58,11 @@ RSpec.describe LecturersController, :type => :controller  do
       @lecturers = [attributes_for(:lecturer)]
     end
     context 'with valid data' do
-      it 'saves the new lecturer in the DB' do
+      it 'saves the new lecturer in the DB and displays success flash message' do
         expect{
           post :create, params:{ lecturer: attributes_for(:lecturer) }
         }.to change(Lecturer, :count).by(1) 
+        expect(flash[:success]).to eq("Welcome to Shahada!!!")
       end
 
 
@@ -76,6 +77,7 @@ RSpec.describe LecturersController, :type => :controller  do
         post :create, params: {
           lecturer: attributes_for(:lecturer_invalid)}
         expect(response).to render_template(:new)
+        expect(flash[:nasty]).to eq("OOPS!! Check your input and try again")
       end
       it 'does not save the new @contact' do
         expect{
@@ -100,6 +102,7 @@ RSpec.describe LecturersController, :type => :controller  do
         @lecturer.reload
         expect(@lecturer.f_name).to eq("Cess")
         expect(@lecturer.l_name).to eq("Terrence")
+        expect(flash[:success]).to eq("Profile updated!!")
       end
 
       it 'locates the requested @lecturer' do
@@ -130,6 +133,7 @@ RSpec.describe LecturersController, :type => :controller  do
           id: @lecturer, lecturer: attributes_for(:lecturer_invalid)
         }
         expect(response).to render_template(:edit)
+        expect(flash[:nasty]).to eq("Please check your information")
       end
     end
   end
@@ -145,6 +149,7 @@ RSpec.describe LecturersController, :type => :controller  do
     it 'redirects to lecturers#index' do
       delete :destroy, params: { id: @lecturer  }
       expect(response).to redirect_to(lecturers_path)
+      expect(flash[:success]).to eq("Lecturer Deleted")
     end
   end
 end

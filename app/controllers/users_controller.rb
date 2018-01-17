@@ -8,10 +8,9 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       redirect_to @user
-      flash[:success] = "Congrats!! Your have successfully signed up!!!"
-      flash[:success] = "Login to the application"
+      flash[:success] = "Congrats!! You have successfully signed up!!!"
     else
-      flash.now[:nasty]="OOPSSS !!Check your inputs and try again"
+      flash.now[:nasty]="OOPSSS !!Check your input and try again"
       render 'new'
     end
   end
@@ -34,7 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = "Successful profile edit"
       redirect_to @user
     else
-      flash[:nasty]="Check your inputs and try again"
+      flash[:nasty]="Check your input and try again"
       render 'edit'
     end
   end

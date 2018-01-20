@@ -56,6 +56,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'cucumber'
+  gem 'shoulda'
 end
 
 group :development do

@@ -57,5 +57,7 @@ describe Lecturer do
     lecturer.valid?
     expect(lecturer.errors[:password]).to include('is too short (minimum is 6 characters)')
   end
+
+  it {should have_many(:assignments)}
 end
 

@@ -1,5 +1,6 @@
-<h1>Holder#account_activation</h1>
+<h1>Account_activation</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/holder_mailer/account_activation.html.erb
+Hello, <%= @holder.f_name %>,
+<%= link_to "Activate", edit_account_activation_url(id: @holder.id, email: @holder.email) %>
 </p>

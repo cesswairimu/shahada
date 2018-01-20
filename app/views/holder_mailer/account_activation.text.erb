@@ -1,3 +1,4 @@
-Holder#account_activation
+Account_activation
 
-<%= @greeting %>, find me in app/views/holder_mailer/account_activation.text.erb
+Hello, <%= @holder.f_name %>,
+<%= link_to "Activate", edit_account_activation_url(id: @holder.id, email: @holder.email) %>

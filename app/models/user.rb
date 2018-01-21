@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  before_create :create_activation
+  # before_create :create_activation
+  attr_accessor :activation_token
   before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

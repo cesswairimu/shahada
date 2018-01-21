@@ -1,5 +1,6 @@
 class Lecturer < ApplicationRecord
-  before_create :create_activation
+  attr_accessor :activation_token
+  # before_create :create_activation
   before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -20,8 +21,8 @@ class Lecturer < ApplicationRecord
 
   private
   def create_activation
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
+    self.activation_token = Lecturer.new_token
+    self.activation_digest = Lecturer.digest(activation_token)
   end
 
   def downcase_email

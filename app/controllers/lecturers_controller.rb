@@ -6,7 +6,8 @@ class LecturersController < ApplicationController
   def create
     @lecturer = Lecturer.new(lec_params)
     if @lecturer.save
-      sign_in @lecturer
+      # sign_in @lecturer
+      HolderMailer.account_activation(@lecturer).deliver_now
       flash[:success] = "Welcome to Shahada!!!"
       redirect_to @lecturer
     else

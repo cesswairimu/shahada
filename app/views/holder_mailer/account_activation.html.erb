@@ -2,5 +2,5 @@
 
 <p>
 Hello, <%= @holder.f_name %>,
-<%= link_to "Activate", edit_account_activation_url(id: @holder.id, email: @holder.email) %>
+<%= link_to "Activate", edit_account_activation_url( @holder.activation_token,id: @holder.id, email: @holder.email) %>
 </p>

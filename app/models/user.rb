@@ -42,4 +42,9 @@ def new_token
 SecureRandom.urlsafe_base64
 end
 
+def authenticated?(attribute, token)
+  digest = send("#{attribute}_digest")
+  return false if digest.nil
+  BCyrpt::Password.new(digest).is_password?(token)
+end
 end

@@ -3,7 +3,7 @@
 <div class="row">
     <div class="medium-8 columns">
         <div class="medium-offset-5">
-            <%= form_for(@lecturer, :remote => true) do |f| %>
+            <%= form_for(@lecturer) do |f| %>
                 <%= render 'shared/errors', object: f.object %>
                 <%= f.label :identity_no %>
                 <%= f.text_field :id_no, placeholder: '28998613'  %>

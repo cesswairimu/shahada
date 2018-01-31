@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # before_create :create_activation
-  # before_save :downcase_email
+  attr_accessor :activation_token
+  before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :f_name, presence: true, length: { maximum: 10 }
@@ -41,4 +42,9 @@ def new_token
 SecureRandom.urlsafe_base64
 end
 
+def authenticated?(attribute, token)
+  digest = send("#{attribute}_digest")
+  return false if digest.nil
+  BCyrpt::Password.new(digest).is_password?(token)
+end
 end

@@ -1,6 +1,7 @@
 class Lecturer < ApplicationRecord
+  attr_accessor :activation_token
   # before_create :create_activation
-  # before_save :downcase_email
+  before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :f_name, presence: true, length: { maximum: 10 }
@@ -20,8 +21,8 @@ class Lecturer < ApplicationRecord
 
   private
   def create_activation
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
+    self.activation_token = Lecturer.new_token
+    self.activation_digest = Lecturer.digest(activation_token)
   end
 
   def downcase_email
@@ -37,4 +38,11 @@ class Lecturer < ApplicationRecord
   def new_token
     SecureRandom.urlsafe_base64
   end
+
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil
+    BCyrpt::Password.new(digest).is_password?(token)
+  end
+
 end

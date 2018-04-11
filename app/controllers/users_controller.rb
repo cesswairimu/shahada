@@ -6,12 +6,24 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      HolderMailer.account_activation(@user).deliver_now
+      UserMailer.activate(@user).deliver
       flash[:info] = "Check mail to activate account"
       redirect_to root_url
     else
       flash.now[:nasty]="OOPSSS !!Check your input and try again"
       render 'new'
+    end
+  end
+
+  def activate_account
+    user = User.find_by_activation_digest(params[:id])
+    if user
+      user.activated
+      flash[:success] = "Account Activated! Login to continue to profile"
+      redirect_to log_in_url
+    else
+      flash[:danger] = "User does not exist"
+      redirect_to root_url
     end
   end
 

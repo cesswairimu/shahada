@@ -6,12 +6,24 @@ class LecturersController < ApplicationController
   def create
     @lecturer = Lecturer.new(lec_params)
     if @lecturer.save
-      HolderMailer.account_activation(@lecturer).deliver_now
+      LecturerMailer.activate(@lecturer).deliver_now
       flash[:info] = "Check mail to activate account"
       redirect_to root_url
     else
       flash.now[:nasty]="OOPS!! Check your input and try again"
       render 'new'
+    end
+  end
+
+  def activate_account
+    lecturer = Lecturer.find_by_activation_digest(params[:id])
+    if lecturer
+      lecturer.activated
+      flash[:success] = "Account Activated! Login to continue to profile"
+      redirect_to signin_url
+    else
+      flash[:danger] = "Lecturer does not exist"
+      redirect_to root_url
     end
   end
 

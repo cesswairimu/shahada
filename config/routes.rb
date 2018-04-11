@@ -14,8 +14,16 @@ Rails.application.routes.draw do
   get    'signin' => 'logins#new'
   post   'signin'  => 'logins#create'
   delete 'signout' => 'logins#destroy'
-  resources :users
-  resources :lecturers
+  resources :users do
+    member do
+      get :activate_account
+    end
+  end
+  resources :lecturers do
+    member do
+      get :activate_account
+    end
+  end
   resources :questions
   resources :assignments
   resources :account_activations, only: :edit

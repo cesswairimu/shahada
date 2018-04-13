@@ -1,0 +1,4 @@
+<h1>Hello,<%= @lecturer.f_name %> </h1>
+<p>Thank you for Signing up to Shahada <p>
+<p> To activate your account click the link below </p>
+<%=  activate_account_lecturer_url(@lecturer.activation_digest) %>

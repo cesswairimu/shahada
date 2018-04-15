@@ -26,6 +26,5 @@ Rails.application.routes.draw do
   end
   resources :questions
   resources :assignments
-  resources :account_activations, only: :edit
   get "*path" => redirect("/")
 end

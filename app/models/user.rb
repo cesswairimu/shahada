@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # before_create :create_activation
-  attr_accessor :activation_token
+  before_create :activation_token
   before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -14,29 +13,35 @@ class User < ApplicationRecord
   has_secure_password
   SCHOOL = ["Computing", "Medicine", "Maths"]
 
-  def User.digest(string)
-    cost  = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                   BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end 
+
   def name
     [f_name, l_name].join(' ')
   end
 
+  def activate
+    self.activated = true
+    self.activation_digest = nil
+    save!(:validate => false)
+  end
+
   private
-  def create_activation
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
+
+  def activation_token
+    if self.activation_digest.blank?
+      self.activation_digest = SecureRandom.urlsafe_base64.to_s
+    end
   end
 
   def downcase_email
     self.email = email.downcase
   end
+
 def digest(string)
   cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
     BCrypt::Engine.cost
   BCrypt::Password.create(string, cost: cost)
 end
+
 # Returns a random token.
 def new_token
 SecureRandom.urlsafe_base64

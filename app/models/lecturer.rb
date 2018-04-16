@@ -1,6 +1,5 @@
 class Lecturer < ApplicationRecord
-  attr_accessor :activation_token
-  # before_create :create_activation
+  before_create :activation_token
   before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -19,10 +18,17 @@ class Lecturer < ApplicationRecord
     [f_name, l_name].join(' ')
   end
 
+  def activate
+    self.activated = true
+    self.activation_digest = nil
+    save!(:validate => false)
+  end
   private
-  def create_activation
-    self.activation_token = Lecturer.new_token
-    self.activation_digest = Lecturer.digest(activation_token)
+
+  def activation_token
+    if self.activation_digest.blank?
+      self.activation_digest = SecureRandom.urlsafe_base64.to_s
+    end
   end
 
   def downcase_email
@@ -34,6 +40,7 @@ class Lecturer < ApplicationRecord
       BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
   # Returns a random token.
   def new_token
     SecureRandom.urlsafe_base64

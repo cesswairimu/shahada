@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def activate_account
     user = User.find_by_activation_digest(params[:id])
     if user
-      user.activated
+      user.activate
       flash[:success] = "Account Activated! Login to continue to profile"
       redirect_to log_in_url
     else

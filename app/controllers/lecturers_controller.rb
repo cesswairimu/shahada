@@ -18,7 +18,7 @@ class LecturersController < ApplicationController
   def activate_account
     lecturer = Lecturer.find_by_activation_digest(params[:id])
     if lecturer
-      lecturer.activated
+      lecturer.activate
       flash[:success] = "Account Activated! Login to continue to profile"
       redirect_to signin_url
     else

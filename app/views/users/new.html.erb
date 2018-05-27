@@ -1,12 +1,6 @@
 <h1> Student sign up here!!</h1>
 <hr>
-<div class="row">
-    <div class="medium-8 columns">
-        <div class="medium-offset-5">
-            <%= form_for(@user) do |f| %>
-                <%= render 'shared/signup', f: f %>
-                <%= f.submit "Sign Up", class: "button" %>
-            <% end %>
-        </div>
-    </div>
-</div>
+        <%= form_for(@user) do |f| %>
+            <%= render 'shared/signup', f: f %>
+            <%= f.submit "Sign Up", class: "button" %>
+        <% end %>

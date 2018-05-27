@@ -1,9 +1,6 @@
 <h1> Lecturer Sign up Form</h1>
 <hr>
-<div class="row">
-    <div class="medium-8 columns">
-        <div class="medium-offset-5">
-            <%= form_for(@lecturer) do |f| %>
+            <%= form_for(@lecturer, ) do |f| %>
                 <%= render 'shared/errors', object: f.object %>
                 <%= f.label :identity_no %>
                 <%= f.text_field :id_no, placeholder: '28998613'  %>
@@ -22,6 +19,3 @@
                 <%= f.password_field :password_confirmation, placeholder: '*******' %>
                 <%= f.submit "Sign Up", class: "button" %>
             <% end %>
-        </div>
-    </div>
-</div>

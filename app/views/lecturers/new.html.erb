@@ -1,21 +1,25 @@
 <h1> Lecturer Sign up Form</h1>
 <hr>
-            <%= form_for(@lecturer, ) do |f| %>
-                <%= render 'shared/errors', object: f.object %>
-                <%= f.label :identity_no %>
-                <%= f.text_field :id_no, placeholder: '28998613'  %>
-                <%= f.label :first_name%>
-                <%= f.text_field :f_name, placeholder:'John'  %>
-                <%= f.label :last_name%>
-                <%= f.text_field :l_name, placeholder: 'Doe' %>
-                <%= f.label :email%>
-                <%= f.text_field :email,  placeholder: 'johndoe@yahoo.com'  %>
-                <%= f.label :phone%>
-                <%= f.text_field :phone,  placeholder: '0700234567'  %>
-                <%= f.select :school, User::SCHOOL, {prompt:'Choose your school'}   %>
-                <%= f.label :password%>
-                <%= f.password_field :password, placeholder: '******'  %>
-                <%= f.label :password_confirmation%>
-                <%= f.password_field :password_confirmation, placeholder: '*******' %>
-                <%= f.submit "Sign Up", class: "button" %>
-            <% end %>
+<div class="row">
+    <div class="large-6 large-offset-2">
+        <%= form_for(@lecturer, ) do |f| %>
+            <%= render 'shared/errors', object: f.object %>
+            <%= f.label :identity_no %>
+            <%= f.text_field :id_no, placeholder: '28998613'  %>
+            <%= f.label :first_name%>
+            <%= f.text_field :f_name, placeholder:'John'  %>
+            <%= f.label :last_name%>
+            <%= f.text_field :l_name, placeholder: 'Doe' %>
+            <%= f.label :email%>
+            <%= f.text_field :email,  placeholder: 'johndoe@yahoo.com'  %>
+            <%= f.label :phone%>
+            <%= f.text_field :phone,  placeholder: '0700234567'  %>
+            <%= f.select :school, User::SCHOOL, {prompt:'Choose your school'}   %>
+            <%= f.label :password%>
+            <%= f.password_field :password, placeholder: '******'  %>
+            <%= f.label :password_confirmation%>
+            <%= f.password_field :password_confirmation, placeholder: '*******' %>
+            <%= f.submit "Sign Up", class: "button" %>
+        <% end %>
+    </div>
+</div>

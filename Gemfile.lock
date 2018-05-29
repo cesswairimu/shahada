@@ -43,6 +43,8 @@ GEM
     animate-rails (1.0.10)
       rails
     arel (7.1.4)
+    autoprefixer-rails (8.1.0.1)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -284,6 +286,7 @@ PLATFORMS
 
 DEPENDENCIES
   animate-rails
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
   byebug
   capybara

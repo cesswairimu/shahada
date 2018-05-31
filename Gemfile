@@ -47,16 +47,18 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'capybara-webkit'
+  gem 'timecop'
+  gem 'selenium-webdriver', '~>  2.53.4'
+  gem 'cucumber-rails'
+  gem 'capybara'
 
 end
 group :test do
   gem 'faker'
-  gem 'capybara'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'selenium-webdriver'
-  gem 'cucumber'
   gem 'shoulda'
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229174305) do
+ActiveRecord::Schema.define(version: 20180608122628) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "unit_code"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20171229174305) do
     t.string   "title"
     t.text     "body"
     t.string   "tag"
-    t.text     "answer"
     t.string   "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -61,14 +61,14 @@ RSpec.describe LecturersController, :type => :controller  do
       it 'saves the new lecturer in the DB and displays success flash message' do
         expect{
           post :create, params:{ lecturer: attributes_for(:lecturer) }
-        }.to change(Lecturer, :count).by(1) 
-        expect(flash[:success]).to eq("Welcome to Shahada!!!")
+        }.to change(Lecturer, :count).by(1)
+        expect(flash[:info]).to eq("Check mail to activate account")
       end
 
 
       it 'redirects to lecturer #show upon save' do
         post :create, params:{ lecturer: attributes_for(:lecturer) }
-        expect(response).to redirect_to lecturer_path(assigns[:lecturer])
+        expect(response).to redirect_to root_url
       end
     end
 

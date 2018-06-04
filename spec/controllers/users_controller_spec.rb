@@ -67,8 +67,8 @@ describe UsersController  do
 
       it 'redirects to user #show upon save' do
         post :create, params:{ user: attributes_for(:user) }
-        expect(response).to redirect_to user_path(assigns[:user])
-        expect(flash[:success]).to eq("Congrats!! You have successfully signed up!!!")
+        expect(response).to redirect_to root_url
+        expect(flash[:info]).to eq("Check mail to activate account")
       end
     end
 

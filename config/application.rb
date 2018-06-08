@@ -5,7 +5,6 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
 module Shahada
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -21,9 +20,10 @@ module Shahada
         controller_specs: true,
         request_specs: false
       #generate factories instead of fixtures
-        g.fixture_replacement :factory_girl, dir: "spec/factories"
+        g.fixture_replacement :factory_bot_rails, dir: "spec/factories"
     end
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
 
   end
 end

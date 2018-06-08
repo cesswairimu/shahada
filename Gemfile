@@ -27,7 +27,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'carrierwave', '~> 0.11.0'
   gem 'mini_magick', '3.8.0'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'capybara-webkit'

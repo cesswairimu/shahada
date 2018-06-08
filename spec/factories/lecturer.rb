@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :lecturer do
     id_no "SC/00030/2013"

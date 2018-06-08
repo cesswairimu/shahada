@@ -46,8 +46,8 @@ describe Lecturer do
   end
 
   it 'is invalid with a duplicate email' do
-    FactoryGirl.create(:lecturer, email: "bunch@fav.com")
-    lecturer = FactoryGirl.build(:lecturer,  email: "bunch@fav.com")
+    FactoryBot.create(:lecturer, email: "bunch@fav.com")
+    lecturer = FactoryBot.build(:lecturer,  email: "bunch@fav.com")
     lecturer.valid?
     expect(lecturer.errors[:email]).to include("has already been taken")
   end

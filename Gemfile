@@ -27,6 +27,7 @@ group :development, :test do
   gem 'carrierwave', '~> 0.11.0'
   gem 'mini_magick', '3.8.0'
   gem 'factory_bot_rails'
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'capybara-webkit'
@@ -54,4 +55,4 @@ gem 'rails_12factor'
 gem 'pg'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'redis-rails'
-gem 'sass'
+# gem 'sass'

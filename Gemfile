@@ -7,6 +7,7 @@ end
 
 ruby '2.5.1'
 gem 'rails', '~> 5.2.0'
+gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -27,7 +28,6 @@ group :development, :test do
   gem 'carrierwave', '~> 0.11.0'
   gem 'mini_magick', '3.8.0'
   gem 'factory_bot_rails'
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'capybara-webkit'
@@ -51,8 +51,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'rails_12factor'
-gem 'pg'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'redis-rails'
-# gem 'sass'

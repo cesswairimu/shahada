@@ -340,6 +340,7 @@ DEPENDENCIES
   rails_12factor
   redis-rails
   rspec-rails
+  sass
   sass-rails (~> 5.0)
   selenium-webdriver (~> 2.53.4)
   shoulda

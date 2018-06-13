@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
  *= require animate
  *= require font-awesome
  *= require simple_calendar
 
  */
+@import "foundation_and_overrides";
  body{
     background-color:#FCFBE3;
 }

@@ -17,7 +17,9 @@
  *= require simple_calendar
 
  */
-@import "foundation_and_overrides";
+@import "semantic-ui";
+// @import "semantic-ui/collections/men";
+// @import "~semantic-ui-sass/semantic-ui.scss";
  body{
     background-color:#FCFBE3;
 }

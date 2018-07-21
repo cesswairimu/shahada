@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require_tree .
-
+//= require semantic-ui
+//= require semantic-ui/modal
+//= require semantic-ui/dropdown
 // $(function(){ $(document).foundation(); });

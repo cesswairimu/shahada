@@ -29,7 +29,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'timecop'
   gem 'selenium-webdriver', '~>  2.53.4'
   gem 'capybara'

@@ -29,17 +29,17 @@
     </div>
 </div>
 <br> <br> <br>
+<% unless logged_in? || signed_in? %>
     <div class="ui grid">
         <div class="six wide column"> </div>
         <div class="four wide column">
-        <% unless logged_in? %>
-    <%=link_to "Sign up as Student", new_user_path , class:"ui blue button"%> &nbsp; &nbsp; &nbsp;
+            <%=link_to "Sign up as Student", new_user_path , class:"ui blue button"%> &nbsp; &nbsp; &nbsp;
         </div>
         <div class="five wide column">
-    <%=link_to "Sign up as Lecturer", lecturers_new_path , class:"ui green button"%>
+            <%=link_to "Sign up as Lecturer", lecturers_new_path , class:"ui green button"%>
         </div>
-    <% end %>
     </div>
+<% end %>
     <h1 id="about">About us</h1>
     <hr>
     <br> <br> <br>

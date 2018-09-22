@@ -1,14 +1,33 @@
-<h1>Log In</h1>
-<div class="row">
-    <div class="medium-6 offest-3 columns">
-<%= form_for(:login,url: signin_path) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email,  placeholder: 'Email'  %>
-    <%= f.label :password %>
-    <%= f.password_field :password, placeholder: 'Password'  %>
-    <%= f.submit "Login", class:"button" %>
-<% end %>
-<p> New here?? <%= link_to "Sign up", new_lecturer_path %>
+<h1>Lecturer Log In</h1>
+<hr>
+<br>
+<div class="ui form">
+    <%= form_for(:login,url: signin_path) do |f| %>
+        <div class="two fields">
+            <div class="one wide field"></div>
+            <div class="six wide field">
+                <%= f.label :email %>
+                <%= f.text_field :email,  placeholder: 'Email'  %>
+            </div>
+        </div>
+        <br>
+        <div class="two fields">
+            <div class="one wide field"></div>
+            <div class="six wide field">
+                <%= f.label :password %>
+                <%= f.password_field :password, placeholder: 'Password'  %>
+            </div>
+        </div>
+        <br>
+        <div class="three fields">
+            <div class="one wide field"></div>
+            <div class="three wide field">
+                <%= f.submit "Login", class:"button", class: "ui inverted blue button" %>
+            </div>
+        <% end %>
+        <div class="four wide field">
+            <%= link_to "New Here? Sign up", new_lecturer_path, class: "ui inverted orange button" %>
+        </div>
+        </div>
 </div>
-</div>
- 
+

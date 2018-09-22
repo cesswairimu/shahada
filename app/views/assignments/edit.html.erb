@@ -1,19 +1,12 @@
 <h1>Edit Assignment </h1>
-<div class="row">
-    <div class="medium-4">
+<hr>
+<br>
+<div class="ui form">
         <%= form_for(@assignment) do |f| %>
-            <%= render 'shared/errors', object: f.object %>
-            <%= f.label :unit_code%>
-            <%= f.text_field :unit_code%>
-            <%= f.label :Description %>
-            <%= f.text_area :title%>
-            <%= f.label :attach_file %>
-            <%= f.file_field :attachment%>
-            <%= f.label :due_date%>
-            <%= date_select(:assignment, :due_date, { :default => @the_date, :include_blank=> @the_date.nil?  })%>
-
-
-            <%= f.submit "Update", class: "button" %>
+            <%= render 'assignment', f: f %>
+        <div class= "fields">
+            <div class="two wide field"> </div>
+            <%= f.submit "Update Assignment", class: "ui inverted green button" %>
+</div>
         <% end %>
-    </div>
 </div>

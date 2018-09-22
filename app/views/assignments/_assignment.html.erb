@@ -1,12 +1,32 @@
-<%= form_for(@assignment) do |f| %>
-    <%= f.label :unit_code%>
-    <%= f.text_field :unit_code%>
-    <%= f.label :unit_name %>
-    <%= f.text_field :unit_name%>
-    <%= f.label :assignment %>
-    <%= f.text_area :title%>
-    <%= f.label :due_date%>
-    <%= f.date_time :time %>
+<%= render 'shared/errors', object: f.object %>
+<div class="two fields">
+    <div class="two wide field"></div>
+    <div class="six wide field">
+        <%= f.label :unit_code%>
+        <%= f.text_field :unit_code%>
+    </div>
+</div>
+<div class="three fields">
+    <div class="two wide field"></div>
+    <div class="six wide field">
+        <%= f.label :Description %>
+        <%= f.text_area :title%>
+</div>
+    <div class="two wide field"></div>
+    <div class="three wide field">
+        <%= f.label :attach_file %>
+        <%= f.file_field :attachment%>
+    </div>
+</div>
+<br>
+<div class="fields">
+    <div class="two wide field"></div>
+    <div class="two wide field">
+            <%= f.label :due_date%>
+    </div>
+    <div class="two wide field">
+            <%= date_select(:assignment, :due_date, { :default => @the_date, :include_blank=> @the_date.nil?  })%>
+    </div>
+</div>
+<br>
 
-
-<% end %>

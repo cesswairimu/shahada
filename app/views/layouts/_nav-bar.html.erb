@@ -1,25 +1,46 @@
 <div class="top-bar">
-    <div class="top-bar-right">
-        <h5><%= link_to "Contact", "#footer" %></h5>&nbsp; &nbsp;
-        <h5> <%= link_to "Stack", questions_path %></h5>&nbsp; &nbsp;
-        <% if logged_in? %>
-            <h5> <%= link_to "Assignments", assignments_path %></h5>&nbsp; &nbsp;
-            <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
-        <% elsif signed_in? %>
-            <h5> <%= link_to "Assignments", assignments_path %></h5>&nbsp; &nbsp;
-            <h5><%= link_to "Signout", signout_path, method: :delete %></h5>
-        <% else %>
-            <h5><%= link_to "Student", log_in_path %></h5>&nbsp; &nbsp;
-            <h5><%= link_to " Lecturer", signin_path %></h5>
-        <% end %>
-    </div>
-    <div class="top-bar-left">
-        <h2><%= link_to "Shahada", root_url %></h2> &nbsp; &nbsp;
-        <% if logged_in? %>
-            <h2><%= link_to fa_icon('home' ),current_user %></h2>
-        <% elsif signed_in? %>
-            <%= link_to fa_icon('home' ),current_lecturer %>
-        <% end %>
-        <%# <%= link_to  image_tag("logo1.png"), root_url%> 
+    <div class="ui grid">
+        <div class="row">
+            <div class="three wide column">
+                <h2><%= link_to "Shahada", root_url %></h2> &nbsp; &nbsp;
+            </div>
+            <div class="one wide column">
+                <% if logged_in? %>
+                    <h2><%= link_to fa_icon('home' ),current_user %></h2>
+                <% elsif signed_in? %>
+                    <%= link_to fa_icon('home' ),current_lecturer %>
+                <% end %>
+            </div>
+            <div class="one wide column">
+                <h5> <%= link_to "Stack", questions_path %></h5>
+            </div>
+
+            <div class="one wide column">
+                <h5><%= link_to "Contact", "#footer" %></h5>&nbsp; &nbsp;
+            </div>
+            <% if logged_in? %>
+                <div class="one wide column">
+                    <h5> <%= link_to "Assignments", assignments_path %></h5>&nbsp; &nbsp;
+                </div>
+                <div class="one wide column">
+                    <h5><%= link_to "Logout", logout_path, method: :delete %></h5>
+                </div>
+            <% elsif signed_in? %>
+                <div class="one wide column">
+                    <h5> <%= link_to "Assignments", assignments_path %></h5>&nbsp; &nbsp;
+                </div>
+                <div class="one wide column">
+                    <h5><%= link_to "Signout", signout_path, method: :delete %></h5>
+                </div>
+            <% else %>
+                <div class="one wide column">
+                    <h5><%= link_to "Student", log_in_path %></h5>&nbsp; &nbsp;
+                </div>
+                <div class="one wide column">
+                    <h5><%= link_to " Lecturer", signin_path %></h5>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>
+

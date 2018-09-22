@@ -1,9 +1,51 @@
 <%= render 'shared/errors', object: f.object %>
-    <%= f.text_field :id_no, placeholder: 'Id number'  %>
-    <%= f.text_field :f_name, placeholder:'First Name'  %>
-    <%= f.text_field :l_name, placeholder: 'Last Name' %>
-    <%= f.text_field :email,  placeholder: 'Email'  %>
-    <%= f.text_field :phone,  placeholder: 'Phone'  %>
-    <%= f.text_field :school, placeholder: 'School'  %>
-    <%= f.password_field :password, placeholder: 'Password'  %>
-    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password'  %>
+<br>
+<div class="fields">
+    <div class="one wide field"> </div>
+    <div class="three wide field">
+<%= f.label :id_no %>
+<%= f.text_field :id_no, placeholder: '34998643'  %>
+</div>
+    <div class="one wide field"> </div>
+    <div class="three wide field">
+<%= f.label :first_name%>
+<%= f.text_field :f_name, placeholder:'John'  %>
+</div>
+    <div class="one wide field"> </div>
+    <div class="three wide field">
+<%= f.label :last_name%>
+<%= f.text_field :l_name, placeholder: 'Doe' %>
+</div>
+</div>
+<br>
+<div class="fields">
+    <div class="one wide field"> </div>
+    <div class="three wide field">
+<%= f.label :email%>
+<%= f.text_field :email,  placeholder: 'john@shahada.com'  %>
+</div>
+    <div class="one wide field"> </div>
+    <div class="three wide field">
+<%= f.label :phone%>
+<%= f.text_field :phone,  placeholder: '0712563478'  %>
+</div>
+    <div class="one wide field"> </div>
+    <div class="three wide field">
+    <%= f.label :school %>
+<%= f.select :school, Lecturer::SCHOOL, {prompt:'Choose your school'}   %>
+</div>
+</div>
+<br>
+<div class= "fields">
+    <div class="one wide field"> </div>
+    <div class="four wide field">
+<%= f.label :password%>
+<%= f.password_field :password, placeholder: '******'  %>
+</div>
+    <div class="two wide field"> </div>
+    <div class="four wide field">
+<%= f.label :password_confirmation%>
+<%= f.password_field :password_confirmation, placeholder: '******'  %>
+</div>
+</div>
+<br>

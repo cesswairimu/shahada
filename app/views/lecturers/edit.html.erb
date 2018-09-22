@@ -1,19 +1,12 @@
 <h1>Edit Profile Information</h1>
-<div class="row">
-    <div class="medium-8 columns">
-        <div class="medium-offset-5">
-            <%= form_for(@lecturer) do |f| %>
-                <%= render 'shared/errors', object: f.object %>
-                <%= f.text_field :id_no, placeholder: 'Id number'  %>
-                <%= f.text_field :f_name, placeholder:'First Name'  %>
-                <%= f.text_field :l_name, placeholder: 'Last Name' %>
-                <%= f.text_field :email,  placeholder: 'Email'  %>
-                <%= f.text_field :phone,  placeholder: 'Phone'  %>
-                <%= f.text_field :school, placeholder: 'School'  %>
-                <%= f.password_field :password, placeholder: 'Password'  %>
-                <%= f.password_field :password_confirmation, placeholder: 'Confirm Password'%>
-                <%= f.submit "Update Information", class: "button" %>
-            <% end %>
+<hr>
+
+<div class="ui form">
+    <%= form_for(@lecturer) do |f| %>
+            <%= render 'shared/lecturer', f: f %>
+        <div class= "fields">
+            <div class="two wide field"> </div>
+            <%= f.submit "Update Information", class: "ui inverted green button" %>
         </div>
-    </div>
+    <% end %>
 </div>

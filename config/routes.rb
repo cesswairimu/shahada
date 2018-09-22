@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get "stack" =>  'static_pages#stack'
   get    'log_in'  => 'sessions#new'
   post   'log_in'  => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   get    'signin' => 'logins#new'
   post   'signin'  => 'logins#create'
-  delete 'signout' => 'logins#destroy'
+  get 'signout' => 'logins#destroy'
   resources :users do
     member do
       get :activate_account

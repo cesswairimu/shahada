@@ -1,14 +1,14 @@
-<div class="row">
-    <div class="medium-8 columns">
-        <div class="medium-offset-5">
+<br>
+<br>
 <h2> Edit My Profile </h2>
+<hr>
 <br>
-<br>
-<br>
-            <%= form_for(@user) do |f| %>
-                <%= render 'shared/signup', f: f %>
-                <%= f.submit "Update Info" %>
-            <% end %>
+<div class="ui form">
+    <%= form_for(@user) do |f| %>
+        <%= render 'shared/signup', f: f %>
+        <div class= "fields">
+            <div class="two wide field"> </div>
+            <%= f.submit "Update Info", class: "ui inverted green button" %>
+        <% end %>
         </div>
-    </div>
 </div>

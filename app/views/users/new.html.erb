@@ -1,10 +1,11 @@
 <h1> Student sign up here!!</h1>
 <hr>
-<div class="row">
-    <div class="large-6 large-offset-2">
-        <%= form_for @user do |f| %>
-                <%= render 'shared/signup', f: f %>
-                <%= f.submit "Sign Up", class: "button" %>
-        <% end %>
-    </div>
+<div class="ui form">
+    <%= form_with model:  @user do |f| %>
+        <%= render 'shared/signup', f: f %>
+        <div class= "fields">
+            <div class="two wide field"> </div>
+            <%= f.submit "Sign Up" , class: "ui inverted violet button" %>
+        </div>
+    <% end %>
 </div>

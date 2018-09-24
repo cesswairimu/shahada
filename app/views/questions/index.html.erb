@@ -1,16 +1,41 @@
-<%# <% provide(:title, "Stack")%>
-<div data-sticky-container>
-    <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
-        <div class="title-bar-left"><%= link_to "Questions",questions_path %></div>
-        <div class="title-bar-right"><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp;
-        <%= link_to "Ask", new_question_path %> </div>
+<% provide(:title, "Stack") %>
+<div class="ui horizontal segments">
+    <div class="ui olive segment">
+        <h5>Search here </h5>
+        <%# <h5> <input type="text" id="searchh" placeholder="Search..."></h5> %>
     </div>
 </div>
-<h1> Stack </h1>
-    <ol>
-<% @questions.each do |quiz| %>
-        <li> <%= link_to quiz.body, question_path(id: quiz.id) %></li>
-        <br>
-    <% end %>
-        </ol>
-<hr>
+<div class="ui horizontal segments">
+
+    <div class="ui grid">
+        <div class="three  wide column"></div>
+        <div class ="ui list">
+
+            <br>
+            <div class="three  wide column">
+                <li><h3> =>  Stack </h3>  </li>
+                <br>
+                <li><h4><%= link_to "Questions",questions_path %> &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
+                <br>
+                <li><h4><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
+                <br>
+                <li><h4><%= link_to "Ask", new_question_path %> &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
+            </div>
+        <div class="three  wide column"></div>
+        </div>
+    </div>
+    <div class="ui  orange segment">
+        <h1> Questions</h1>
+        <br><br>
+            <% @questions.each do |quiz| %>
+                <div class="ui list" align="justified">
+                    <h4> <%= link_to quiz.body.capitalize, question_path(id: quiz.id) %></h4>
+                </div>
+                <br>
+            <% end %>
+        <hr>
+    </div>
+    <div class="ui yellow segment">
+        <h3 align="center"> Common Tags</h3>
+</div>
+</div>

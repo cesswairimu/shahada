@@ -1,64 +1,9 @@
-<div class="ui horizontal segments">
-    <div class="ui olive segment">
-        <h5>Search here </h5>
-        <%# <h5> <input type="text" id="searchh" placeholder="Search..."></h5> %>
-    </div>
-</div>
-<div class="ui horizontal segments">
-
-    <div class="ui grid">
-        <div class="three  wide column"></div>
-        <div class ="ui list">
-
-            <br>
-            <div class="three  wide column">
-                <li><h3> =>  Stack </h3>  </li>
-                <br>
-                <li><h4><%= link_to "Questions",questions_path %> &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
-                <br>
-                <li><h4><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
-                <br>
-                <li><h4><%= link_to "Ask", new_question_path %> &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
-            </div>
-            <div class="three  wide column"></div>
-        </div>
-    </div>
-    <div class="ui  orange segment">
+<%= render 'stack/section' %>
         <h1> Ask a Question</h1>
         <div class="ui form">
         <br><br>
         <%= form_for(@question) do |f| %>
-            <%= render 'shared/errors', object: f.object %>
-            <div class="two fields">
-                <div class="two wide field"></div>
-                <div class="eight wide field">
-                    <%= f.label :title %>
-                    <%= f.text_field :title %>
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="two wide field"></div>
-                <div class="eight wide field">
-                    <%= f.label :body %>
-                    <%= f.text_area :body, placeholder: "Enter your question here ...", cols:"100", rows: "10" %>
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="two wide field"></div>
-                <div class="eight wide field">
-
-                    <%= f.label :category %>
-                    <%= f.select :category, Question::CAT, {prompt:"Select Category of your question"}%>
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="two wide field"></div>
-                <div class="eight wide field">
-                    <%= f.label :tag %>
-                    <%= f.text_field :tag, placeholder: "Enter tags here separated by commas" %>
-                </div>
-            </div>
-            <br>
+            <%= render 'form', f: f %>
             <div class="two fields">
                 <div class="two wide field"></div>
                 <div class="eight wide field">
@@ -68,7 +13,4 @@
         <% end %>
         </div>
     </div>
-    <div class="ui yellow segment">
-        <h3 align="center"> Common Tags</h3>
-    </div>
-</div>
+    <%= render 'stack/tags' %>

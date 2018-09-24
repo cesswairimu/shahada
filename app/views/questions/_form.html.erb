@@ -1,0 +1,31 @@
+<%= render 'shared/errors', object: f.object %>
+<div class="two fields">
+    <div class="two wide field"></div>
+    <div class="eight wide field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+</div>
+<div class="two fields">
+    <div class="two wide field"></div>
+    <div class="eight wide field">
+        <%= f.label :body %>
+        <%= f.text_area :body, placeholder: "Enter your question here ...", cols:"100", rows: "10" %>
+    </div>
+</div>
+<div class="two fields">
+    <div class="two wide field"></div>
+    <div class="eight wide field">
+
+        <%= f.label :category %>
+        <%= f.select :category, Question::CAT, {prompt:"Select Category of your question"}%>
+    </div>
+</div>
+<div class="two fields">
+    <div class="two wide field"></div>
+    <div class="eight wide field">
+        <%= f.label :tag %>
+        <%= f.text_field :tag, placeholder: "Enter tags here separated by commas" %>
+    </div>
+</div>
+<br>

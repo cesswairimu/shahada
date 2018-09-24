@@ -1,30 +1,4 @@
-<% provide(:title, "Stack") %>
-<div class="ui horizontal segments">
-    <div class="ui olive segment">
-        <h5>Search here </h5>
-        <%# <h5> <input type="text" id="searchh" placeholder="Search..."></h5> %>
-    </div>
-</div>
-<div class="ui horizontal segments">
-
-    <div class="ui grid">
-        <div class="three  wide column"></div>
-        <div class ="ui list">
-
-            <br>
-            <div class="three  wide column">
-                <li><h3> =>  Stack </h3>  </li>
-                <br>
-                <li><h4><%= link_to "Questions",questions_path %> &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
-                <br>
-                <li><h4><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
-                <br>
-                <li><h4><%= link_to "Ask", new_question_path %> &nbsp; &nbsp; &nbsp; &nbsp; </h4></li>
-            </div>
-        <div class="three  wide column"></div>
-        </div>
-    </div>
-    <div class="ui  orange segment">
+<%= render 'stack/section' %>
         <h1> Questions</h1>
         <br><br>
             <% @questions.each do |quiz| %>
@@ -33,9 +7,5 @@
                 </div>
                 <br>
             <% end %>
-        <hr>
     </div>
-    <div class="ui yellow segment">
-        <h3 align="center"> Common Tags</h3>
-</div>
-</div>
+    <%= render 'stack/tags' %>

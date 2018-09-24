@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :phone, presence:true, format: { with:NUMBER }
   has_secure_password
   SCHOOL = ["Computing", "Medicine", "Maths"]
+  has_many :questions, as: :people
 
 
   def name

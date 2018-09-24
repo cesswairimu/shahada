@@ -4,7 +4,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(quiz_params)
+    if logged_in?
+    @question = current_user.questions.build(quiz_params)
+    elsif signed_in?
+    @question = current_lecturer.questions.build(quiz_params)
+    end
     if @question.save
       flash[:success] = "You have posted your question"
       redirect_to @question

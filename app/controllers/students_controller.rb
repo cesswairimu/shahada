@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class StudentsController < ApplicationController
   def new
     @user = User.new
   end
@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.activate(@user).deliver
+      StudentMailer.activate(@user).deliver
       flash[:info] = "Check mail to activate account"
       redirect_to root_url
     else

@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Student < ApplicationRecord
   before_create :activation_token
   before_save :downcase_email
   NUMBER = /\d[0-9]\)*\z/

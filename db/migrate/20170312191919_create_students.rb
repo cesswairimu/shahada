@@ -1,7 +1,7 @@
-class CreateLecturers < ActiveRecord::Migration[5.0]
+class CreateStudents < ActiveRecord::Migration[5.0]
   def change
-    create_table :lecturers do |t|
-      t.string :id_no
+    create_table :students do |t|
+      t.string :reg_no
       t.string :f_name
       t.string :l_name
       t.string :email
@@ -11,7 +11,6 @@ class CreateLecturers < ActiveRecord::Migration[5.0]
       t.string :activation_digest
       t.boolean :activated
       t.datetime :activated_at
-
       t.timestamps
     end
   end

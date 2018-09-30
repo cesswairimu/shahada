@@ -8,12 +8,12 @@
             <th>School </th>
         </tr>
     </thead>
-    <% @lecturers.each do |user| %>
+    <% @lecturers.each do |lecturer| %>
         <tr>
-            <td><%= user.id %></td>
-            <td> <%= user.f_name%></td>
-            <td><%= user.l_name %> </td>
-            <td> <%=user.school %></td>
+            <td><%= lecturer.id %></td>
+            <td> <%= lecturer.f_name%></td>
+            <td><%= lecturer.l_name %> </td>
+            <td> <%=lecturer.school %></td>
         <% end %>
         </tr>
 </table>

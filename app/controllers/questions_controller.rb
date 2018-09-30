@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
 
   def create
     if logged_in?
-    @question = current_user.questions.build(quiz_params)
+    @question = current_student.questions.build(quiz_params)
     elsif signed_in?
     @question = current_lecturer.questions.build(quiz_params)
     end

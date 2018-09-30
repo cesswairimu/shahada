@@ -1,22 +1,22 @@
-<h3 align='center'>Hello <%= (@user.f_name).capitalize %></h3>
+<h3 align='center'>Hello <%= (@student.f_name).capitalize %></h3>
 <hr>
 <br><br>
 <h4 align= 'center'> My Information </h4>
 <br>
 <table>
     <tr> <th>Registration Number </th>
-        <td> <%= @user.reg_no %></td></tr>
+        <td> <%= @student.reg_no %></td></tr>
     <tr><th>First Name </th>
-        <td> <%= @user.f_name %></td></tr>
+        <td> <%= @student.f_name %></td></tr>
     <tr><th>Last Name </th>
-        <td> <%= @user.l_name %></td></tr>
+        <td> <%= @student.l_name %></td></tr>
     <tr><th>Email </th>
-        <td> <%= @user.email %></td></tr>
+        <td> <%= @student.email %></td></tr>
     <tr><th>Phone No. </th>
-        <td> <%= @user.phone %></td></tr>
+        <td> <%= @student.phone %></td></tr>
     <tr><th>School </th>
-        <td> <%= @user.school %></td></tr>
+        <td> <%= @student.school %></td></tr>
 
 </table>
-<p align='center'><%= link_to 'Edit Profile', edit_user_path, class:"ui inverted violet button" %></p> 
+<p align='center'><%= link_to 'Edit Profile', edit_student_path, class:"ui inverted violet button" %></p> 
 

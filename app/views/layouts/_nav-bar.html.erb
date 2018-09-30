@@ -6,7 +6,7 @@
             </div>
             <div class="one wide column">
                 <% if logged_in? %>
-                    <h2><%= link_to fa_icon('home' ),current_user %></h2>
+                    <h2><%= link_to fa_icon('home' ),current_student %></h2>
                 <% elsif signed_in? %>
                     <%= link_to fa_icon('home' ),current_lecturer %>
                 <% end %>

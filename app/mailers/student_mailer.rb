@@ -1,6 +1,6 @@
 class StudentMailer < ApplicationMailer
-  def activate(user)
-    @user = user
-    mail(:to  => "#{user.f_name} <#{user.email}>", :subject => "Account Activation")
+  def activate(student)
+    @student = student
+    mail(:to  => "#{student.f_name} <#{student.email}>", :subject => "Account Activation")
   end
 end

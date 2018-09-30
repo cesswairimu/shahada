@@ -1,6 +1,6 @@
 FactoryBot.define do
 
-  factory :user do
+  factory :student do
     reg_no "SC/00030/2013"
     f_name "Felix"
     l_name "Simon"
@@ -13,7 +13,7 @@ FactoryBot.define do
     activated_at Time.zone.now
   end
 
-  factory :user1, class: User  do
+  factory :student1, class: Student  do
     f_name nil
   end
 

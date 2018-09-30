@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get    'signin' => 'logins#new'
   post   'signin'  => 'logins#create'
   get 'signout' => 'logins#destroy'
-  resources :users do
+  resources :students do
     member do
       get :activate_account
     end

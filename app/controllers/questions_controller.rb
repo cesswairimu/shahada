@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
     @question = current_student.questions.build(quiz_params)
     elsif signed_in?
     @question = current_lecturer.questions.build(quiz_params)
+    @question
     end
     if @question.save
       flash[:success] = "You have posted your question"

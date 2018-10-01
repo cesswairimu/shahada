@@ -4,7 +4,7 @@ validates :body, presence: true
 validates :category, presence:true
 validates :tag, presence:true
 has_many :answers
-belongs_to :people, polymorphic: true
+belongs_to :user, polymorphic: true
 
   CAT= ["Networking", "Programming", "Database", "Calculus", "Medicine", "Statistics"]
 end

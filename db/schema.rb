@@ -15,9 +15,12 @@ ActiveRecord::Schema.define(version: 2018_09_24_102612) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.integer "question_id"
+    t.text "user_type"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_type", "user_id"], name: "index_answers_on_user_type_and_user_id"
   end
 
   create_table "assignments", force: :cascade do |t|
@@ -51,6 +54,8 @@ ActiveRecord::Schema.define(version: 2018_09_24_102612) do
     t.text "body"
     t.string "tag"
     t.string "category"
+    t.integer "user_id"
+    t.text "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

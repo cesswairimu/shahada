@@ -1,23 +1,22 @@
-<div data-sticky-container>
-    <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
-        <div class="title-bar-left"><%= link_to "Questions",questions_path %></div>
-        <div class="title-bar-right"><%= link_to "Tags", "#" %>  &nbsp; &nbsp; &nbsp; &nbsp;
-        <%= link_to "Ask", new_question_path %> </div>
+<%= render 'stack/section' %>
+<h3 align='center'><%= (@question.title).capitalize %></h3>
+<div class="ui form">
+    <br><br>
+    <p><%= @question.body.capitalize %> </p>
+    <div class="two fields">
+        <div class="two wide field"></div>
+        <div class="eight wide field">
+            <p><strong><%= @question.category%></strong> </p>
+            <p><strong><%= @question.tag %></strong> </p>
+            <% if @question.answers.any? %>
+                <p><strong> Answers &nbsp; &nbsp; </strong> 
+                <% @question.answers.each do |ans| %>
+                    <li><%= ans %></li>
+                <% end %>
+            <% end %>
+            <%= render 'answer/form' %>
+        </div>
     </div>
 </div>
-
-<h3 align='center'><%= (@question.title).capitalize %></h3>
-<hr>
-<p><%= @question.body %> </p>
-<br>
-<br>
-<li><strong> Category: &nbsp; &nbsp; </strong>  <%= @question.category %> </li>
-<br>
-<li><strong> Tags: &nbsp; &nbsp; </strong> <%= @question.tag %> </li>
-<br>
-<br>
-<% if @question.answers.any? %>
-<p><strong> Answers &nbsp; &nbsp; </strong> 
-<li><%= @question.answer %> </li>
-<% end %>
-<%= link_to "Answer" ,edit_question_path , class: "button"%>
+</div>
+<%= render 'stack/tags' %>

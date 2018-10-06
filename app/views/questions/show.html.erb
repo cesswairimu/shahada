@@ -11,10 +11,22 @@
             <% if @question.answers.any? %>
                 <p><strong> Answers &nbsp; &nbsp; </strong> 
                 <% @question.answers.each do |ans| %>
-                    <li><%= ans %></li>
+                    <li><%= ans.body %></li>
                 <% end %>
             <% end %>
-            <%= render 'answer/form' %>
+            <%= form_for(@answer) do |f| %>
+                <%= render 'answers/form', f: f %>
+                <%= f.hidden_field :question_id, value: @question.id %>
+                <% if logged_in? %>
+                <%= f.hidden_field :user_id, value: current_student.id %>
+                <%= f.hidden_field :user_type, value: 'Student' %>
+            <% else %>
+                <%= f.hidden_field :user_id, value: current_lecturer.id %>
+                <%= f.hidden_field :user_type, value: 'Lecturer' %>
+                <% end %>
+                <br>
+            <%= f.submit "Answer", class: "ui inverted green button" %>
+                <% end %>
         </div>
     </div>
 </div>

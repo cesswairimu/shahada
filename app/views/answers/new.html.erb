@@ -1,0 +1,10 @@
+<%= form_for(@answer) do |f| %>
+    <%= render 'form', f: f %>
+    <div class="two fields">
+        <div class="two wide field"></div>
+        <div class="eight wide field">
+            <%= f.submit "Post Your Answer" ,class: "ui inverted orange button"%>
+        </div>
+    </div>
+<% end %>
+    

@@ -3,7 +3,7 @@
         <br><br>
             <% @questions.each do |quiz| %>
                 <div class="ui list" align="justified">
-                    <h4> <%= link_to quiz.body.capitalize, question_path(id: quiz.id) %></h4>
+                    <h4> <%= link_to quiz.title.capitalize, question_path(id: quiz.id) %></h4>
                 </div>
                 <br>
             <% end %>

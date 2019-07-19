@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.1'
+ruby '2.6.3'
 gem 'rails', '~> 5.2.0'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -39,7 +39,6 @@ end
 
 group :test do
   gem 'cucumber-rails', :require => false
-  gem 'faker'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'launchy'

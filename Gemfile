@@ -22,7 +22,7 @@ gem 'animate-rails'
 gem 'font-awesome-rails'
 gem "simple_calendar", "~> 2.0"
 gem 'carrierwave', '~> 0.11.0'
-gem 'mini_magick', '3.8.0'
+gem 'mini_magick'
 gem 'faker'
 
 group :development, :test do

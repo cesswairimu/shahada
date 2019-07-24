@@ -27,7 +27,7 @@ gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 4.10.0'
   gem 'rspec-rails'
   gem 'pry-rails'
   # gem 'capybara-webkit'
@@ -42,7 +42,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 group :development do

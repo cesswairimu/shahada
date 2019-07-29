@@ -1,16 +1,16 @@
 <%= render 'stack/section' %>
-    <h1 >Edit question</h1>
-        <div class="ui form">
-            <br> <br>
-        <%= form_for(@question) do |f| %>
-            <%= render 'form', f: f %>
-            <div class="two fields">
-                <div class="two wide field"></div>
-                <div class="eight wide field">
-            <%= f.submit "Update question" ,class: "ui inverted orange button"%>
+<h1 >Edit question</h1>
+<div class="ui form">
+    <br> <br>
+    <%= form_for(@question) do |f| %>
+        <%= render 'form', f: f %>
+        <div class="two fields">
+            <div class="two wide field"></div>
+            <div class="eight wide field">
+                <%= f.submit "Update question" ,class: "ui inverted orange button"%>
             </div>
-            </div>
-        <% end %>
-    </div>
-    </div>
-    <%= render 'stack/tags' %>
+        </div>
+    <% end %>
+</div>
+</div>
+<%= render 'stack/tags' %>

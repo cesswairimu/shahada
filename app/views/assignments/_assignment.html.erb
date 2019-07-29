@@ -11,7 +11,7 @@
     <div class="six wide field">
         <%= f.label :Description %>
         <%= f.text_area :title%>
-</div>
+    </div>
     <div class="two wide field"></div>
     <div class="three wide field">
         <%= f.label :attach_file %>
@@ -22,10 +22,10 @@
 <div class="fields">
     <div class="two wide field"></div>
     <div class="two wide field">
-            <%= f.label :due_date%>
+        <%= f.label :due_date%>
     </div>
     <div class="two wide field">
-            <%= date_select(:assignment, :due_date, { :default => @the_date, :include_blank=> @the_date.nil?  })%>
+        <%= date_select(:assignment, :due_date, { :default => @the_date, :include_blank=> @the_date.nil?  })%>
     </div>
 </div>
 <br>

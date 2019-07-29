@@ -11,10 +11,9 @@ class Assignment < ApplicationRecord
     if due_date.present? && due_date < Date.today
       errors.add(:due_date, "Can't be in the past")
     end
-  end     
+  end
 
   def self.by_letter(letter)
     Assignment.where( "lecturer LIKE?", "#{letter}%")
   end
-
 end

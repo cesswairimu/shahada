@@ -6,7 +6,6 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(ans_params)
-    # binding.pry
     if @answer.save
       flash[:info] = "Answer posted"
       redirect_to questions_path

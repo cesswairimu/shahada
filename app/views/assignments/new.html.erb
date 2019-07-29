@@ -2,12 +2,11 @@
 <hr>
 <br>
 <div class="ui form">
-        <%= form_for(@assignment) do |f| %>
-            <%= render 'assignment', f: f %>
+    <%= form_for(@assignment) do |f| %>
+        <%= render 'assignment', f: f %>
         <div class= "fields">
             <div class="two wide field"> </div>
             <%= f.submit "Post Assignment", class: "ui inverted green button" %>
-    </div>
-        <% end %>
+        </div>
+    <% end %>
 </div>
-

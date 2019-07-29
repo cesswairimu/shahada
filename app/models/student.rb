@@ -38,20 +38,20 @@ class Student < ApplicationRecord
     self.email = email.downcase
   end
 
-def digest(string)
-  cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-    BCrypt::Engine.cost
-  BCrypt::Password.create(string, cost: cost)
-end
+  def digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+      BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
-# Returns a random token.
-def new_token
-SecureRandom.urlsafe_base64
-end
+  # Returns a random token.
+  def new_token
+    SecureRandom.urlsafe_base64
+  end
 
-def authenticated?(attribute, token)
-  digest = send("#{attribute}_digest")
-  return false if digest.nil
-  BCyrpt::Password.new(digest).is_password?(token)
-end
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil
+    BCyrpt::Password.new(digest).is_password?(token)
+  end
 end

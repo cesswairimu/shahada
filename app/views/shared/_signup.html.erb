@@ -3,49 +3,49 @@
 <div class="fields">
     <div class="one wide field"> </div>
     <div class="three wide field">
-<%= f.label :reg_no %>
-<%= f.text_field :reg_no, placeholder: 'MAT/00050/013'  %>
-</div>
+        <%= f.label :reg_no %>
+        <%= f.text_field :reg_no, placeholder: 'MAT/00050/013'  %>
+    </div>
     <div class="one wide field"> </div>
     <div class="three wide field">
-<%= f.label :first_name%>
-<%= f.text_field :f_name, placeholder:'Mary'  %>
-</div>
+        <%= f.label :first_name%>
+        <%= f.text_field :f_name, placeholder:'Mary'  %>
+    </div>
     <div class="one wide field"> </div>
     <div class="three wide field">
-<%= f.label :last_name%>
-<%= f.text_field :l_name, placeholder: 'Jane' %>
-</div>
+        <%= f.label :last_name%>
+        <%= f.text_field :l_name, placeholder: 'Jane' %>
+    </div>
 </div>
 <br>
 <div class="fields">
     <div class="one wide field"> </div>
     <div class="three wide field">
-<%= f.label :email%>
-<%= f.text_field :email,  placeholder: 'mary@gmail.coml'  %>
-</div>
+        <%= f.label :email%>
+        <%= f.text_field :email,  placeholder: 'mary@gmail.coml'  %>
+    </div>
     <div class="one wide field"> </div>
     <div class="three wide field">
-<%= f.label :phone%>
-<%= f.text_field :phone,  placeholder: '0712563478'  %>
-</div>
+        <%= f.label :phone%>
+        <%= f.text_field :phone,  placeholder: '0712563478'  %>
+    </div>
     <div class="one wide field"> </div>
     <div class="three wide field">
-    <%= f.label :school %>
-<%= f.select :school, Student::SCHOOL, {prompt:'Choose your school'}   %>
-</div>
+        <%= f.label :school %>
+        <%= f.select :school, Student::SCHOOL, {prompt:'Choose your school'}   %>
+    </div>
 </div>
 <br>
 <div class= "fields">
     <div class="one wide field"> </div>
     <div class="four wide field">
-<%= f.label :password%>
-<%= f.password_field :password, placeholder: '******'  %>
-</div>
+        <%= f.label :password%>
+        <%= f.password_field :password, placeholder: '******'  %>
+    </div>
     <div class="two wide field"> </div>
     <div class="four wide field">
-<%= f.label :password_confirmation%>
-<%= f.password_field :password_confirmation, placeholder: '******'  %>
-</div>
+        <%= f.label :password_confirmation%>
+        <%= f.password_field :password_confirmation, placeholder: '******'  %>
+    </div>
 </div>
 <br>

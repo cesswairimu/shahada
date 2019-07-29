@@ -53,5 +53,4 @@ class Lecturer < ApplicationRecord
     return false if digest.nil
     BCyrpt::Password.new(digest).is_password?(token)
   end
-
 end

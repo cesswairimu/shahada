@@ -32,8 +32,6 @@ class AssignmentsController < ApplicationController
 
   def index
     @assignments = Assignment.all
-    # @assignment = Assignment.find(params[:id])
-    # @my_assignments = Assignment.where("lecturer_id = @assignment.lecturer_id")
   end
 
   def show

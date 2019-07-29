@@ -1,16 +1,16 @@
 <%= render 'stack/section' %>
-        <h1> Ask a Question</h1>
-        <div class="ui form">
-        <br><br>
-        <%= form_for(@question) do |f| %>
-            <%= render 'form', f: f %>
-            <div class="two fields">
-                <div class="two wide field"></div>
-                <div class="eight wide field">
-                    <%= f.submit "Post Your Question" ,class: "ui inverted orange button"%>
-                </div>
+<h1> Ask a Question</h1>
+<div class="ui form">
+    <br><br>
+    <%= form_for(@question) do |f| %>
+        <%= render 'form', f: f %>
+        <div class="two fields">
+            <div class="two wide field"></div>
+            <div class="eight wide field">
+                <%= f.submit "Post Your Question" ,class: "ui inverted orange button"%>
             </div>
-        <% end %>
         </div>
-    </div>
-    <%= render 'stack/tags' %>
+    <% end %>
+</div>
+</div>
+<%= render 'stack/tags' %>

@@ -1,5 +1,5 @@
-# require 'support/factory_girl'
 require 'rails_helper'
+
 RSpec.describe LecturersController, :type => :controller  do
 
   context 'new' do
@@ -25,7 +25,6 @@ RSpec.describe LecturersController, :type => :controller  do
       expect(assigns(:lecturer)).to eq(lecturer)
     end
   end
-
 
   context 'index' do 
     it 'renders a template index' do
@@ -153,4 +152,3 @@ RSpec.describe LecturersController, :type => :controller  do
     end
   end
 end
-

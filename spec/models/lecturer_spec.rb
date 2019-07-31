@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe Lecturer do
 
   it 'has a valid factory' do
@@ -60,4 +59,3 @@ describe Lecturer do
 
   it {should have_many(:assignments)}
 end
-

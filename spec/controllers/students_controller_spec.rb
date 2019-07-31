@@ -1,4 +1,3 @@
-# require 'support/factory_girl'
 require 'rails_helper'
 describe StudentsController  do
 
@@ -26,18 +25,17 @@ describe StudentsController  do
     end
   end
 
-
   context 'index' do 
- it 'renders a template index' do
-    get :index
-    expect(response).to render_template(:index)
-  end
- it 'populates an array all students' do
-   bunch = create(:student, f_name: "Bunch")
-   buzz = create(:student, f_name: "Buzz")
-   get :index
-   expect(assigns(:students)).to match_array([bunch,buzz])
- end
+    it 'renders a template index' do
+      get :index
+      expect(response).to render_template(:index)
+    end
+    it 'populates an array all students' do
+      bunch = create(:student, f_name: "Bunch")
+      buzz = create(:student, f_name: "Buzz")
+      get :index
+      expect(assigns(:students)).to match_array([bunch,buzz])
+    end
   end
 
   context 'edit' do
@@ -59,11 +57,10 @@ describe StudentsController  do
     end
     context 'with valid data' do
       it 'saves the new student in the DB' do
-       expect{
-        post :create, params:{ student: attributes_for(:student) }
-       }.to change(Student, :count).by(1) 
+        expect{
+          post :create, params:{ student: attributes_for(:student) }
+        }.to change(Student, :count).by(1) 
       end
-
 
       it 'redirects to student #show upon save' do
         post :create, params:{ student: attributes_for(:student) }
@@ -72,65 +69,63 @@ describe StudentsController  do
       end
     end
 
-  context 'with invalid data' do
-    it 're-renders the template new' do
-      post :create,params:{
-    student: attributes_for(:student1) }
-      expect(response).to render_template(:new)
-      expect(flash[:nasty]).to eq("OOPSSS !!Check your input and try again")
-    end
-    it 'does not save the new @contact' do
-    expect{
-        post :create, params:{ student: attributes_for(:student1) }
-       }.not_to change(Student, :count)
+    context 'with invalid data' do
+      it 're-renders the template new' do
+        post :create,params:{
+          student: attributes_for(:student1) }
+        expect(response).to render_template(:new)
+        expect(flash[:nasty]).to eq("OOPSSS !!Check your input and try again")
+      end
+      it 'does not save the new @contact' do
+        expect{
+          post :create, params:{ student: attributes_for(:student1) }
+        }.not_to change(Student, :count)
+      end
     end
   end
-
- end
-
 
   describe "PATCH #update" do
-  before :each do
-    @student = create(:student)
-  end
-
-  context "with valid attributes" do
-
-    it "locates the requested @student" do
-      patch :update, params: { id: @student, student: attributes_for(:student) }
-      expect(assigns(:student)).to eq(@student)
+    before :each do
+      @student = create(:student)
     end
 
-    it "updates the student info" do
-      patch :update, params: { 
-        id: @student, student: attributes_for(:student, f_name: "Foo", l_name: "Bar")
-      }
-      @student.reload
-      expect(@student.f_name).to eq("Foo")
-      expect(@student.l_name).to eq("Bar")
-    end
-    it 'redirects to the student profile' do
-      patch :update, params: { id: @student, student: attributes_for(:student) }
-      expect(response).to redirect_to(@student)
-      expect(flash[:success]).to eq("Successful profile edit")
-    end
-  end
-  context "with invalid attributes" do
+    context "with valid attributes" do
 
-    it "does not change the student details" do
-      patch :update, params: { 
-        id: @student, student: attributes_for(:student, f_name: "Foo", l_name: nil)
-      }
-      @student.reload
-      expect(@student.f_name).not_to eq("Foo")
-    end
+      it "locates the requested @student" do
+        patch :update, params: { id: @student, student: attributes_for(:student) }
+        expect(assigns(:student)).to eq(@student)
+      end
 
-    it 're-render the edit template' do
-      patch :update, params: { id: @student, student: attributes_for(:student1) }
-      expect(response).to render_template(:edit)
-      expect(flash[:nasty]).to eq("Check your input and try again")
+      it "updates the student info" do
+        patch :update, params: { 
+          id: @student, student: attributes_for(:student, f_name: "Foo", l_name: "Bar")
+        }
+        @student.reload
+        expect(@student.f_name).to eq("Foo")
+        expect(@student.l_name).to eq("Bar")
+      end
+      it 'redirects to the student profile' do
+        patch :update, params: { id: @student, student: attributes_for(:student) }
+        expect(response).to redirect_to(@student)
+        expect(flash[:success]).to eq("Successful profile edit")
+      end
     end
-  end
+    context "with invalid attributes" do
+
+      it "does not change the student details" do
+        patch :update, params: { 
+          id: @student, student: attributes_for(:student, f_name: "Foo", l_name: nil)
+        }
+        @student.reload
+        expect(@student.f_name).not_to eq("Foo")
+      end
+
+      it 're-render the edit template' do
+        patch :update, params: { id: @student, student: attributes_for(:student1) }
+        expect(response).to render_template(:edit)
+        expect(flash[:nasty]).to eq("Check your input and try again")
+      end
+    end
   end
 
   describe 'destroy' do
@@ -149,7 +144,5 @@ describe StudentsController  do
       expect(response).to redirect_to(students_path)
       expect(flash[:success]).to eq("Student has been deleted")
     end
-    end
+  end
 end
-
-

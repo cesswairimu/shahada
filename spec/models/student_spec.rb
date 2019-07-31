@@ -1,14 +1,12 @@
 require 'rails_helper'
-
 describe Student do
-
   it 'has a valid factory' do
     expect(build(:student)).to be_valid
   end
 
   it 'is valid with a f_name, l_name, phone, reg_no and email' do
-  student = create(:student)
-  expect(student).to be_valid
+    student = create(:student)
+    expect(student).to be_valid
   end
 
   it 'is invalid without an email' do
